@@ -72,7 +72,17 @@ def generate_html(graph: Graph, base_uri: str) -> str:
         # Build table rows
         rows_html = ""
         for p_name, values in sorted(properties.items()):
-            formatted_values = ", ".join([format_value(v) for v in values])
+            # Format values with language tags
+            formatted_values_list = []
+            for v in values:
+                lang = getattr(v, "language", None)
+                formatted_v = format_value(v)
+                if lang:
+                    formatted_values_list.append(f'<span class="lang-value" data-lang="{html.escape(lang)}">{formatted_v}</span>')
+                else:
+                    formatted_values_list.append(f'<span class="lang-value" data-lang="any">{formatted_v}</span>')
+            
+            formatted_values = ", ".join(formatted_values_list)
             rows_html += f"<tr><th>{html.escape(p_name)}</th><td>{formatted_values}</td></tr>\n"
 
         # Build entity block
@@ -180,16 +190,43 @@ def generate_html(graph: Graph, base_uri: str) -> str:
         .rdf-link:hover {{
             background: #153b75;
         }}
+        
+        /* i18n styles */
+        .lang-value {{ display: inline; }}
+        .lang-value.hidden {{ display: none !important; }}
+        
+        .header-controls {{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }}
+        .lang-selector {{
+            margin-top: 20px;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid var(--rule);
+            background: white;
+            font-size: 14px;
+            cursor: pointer;
+        }}
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <h1>Namespace ID (NID)</h1>
-        <p>Vocabulário e identificadores de recursos da base de conhecimento de Elias Magalhães.</p>
-        <p><strong>URI Base:</strong> <code>{html.escape(base_uri)}</code></p>
-        <a href="/nid.ttl" class="rdf-link">⬇ Baixar dados RDF (Turtle)</a>
+        <div class="header-controls">
+            <div>
+                <h1>Namespace ID (NID)</h1>
+                <p>Vocabulário e identificadores de recursos da base de conhecimento de Elias Magalhães.</p>
+                <p><strong>URI Base:</strong> <code>{html.escape(base_uri)}</code></p>
+                <a href="/nid.ttl" class="rdf-link">⬇ Baixar dados RDF (Turtle)</a>
+            </div>
+            <select id="lang-select" class="lang-selector">
+                <option value="pt-br">🇧🇷 Português (pt-BR)</option>
+                <option value="en">🇺🇸 English (en)</option>
+            </select>
+        </div>
     </header>
 
     <section>
@@ -198,6 +235,110 @@ def generate_html(graph: Graph, base_uri: str) -> str:
     </section>
 </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {{
+        const select = document.getElementById('lang-select');
+        
+        // Function to update visibility of values based on selected language
+        function updateLanguage(targetLang) {{
+            const values = document.querySelectorAll('.lang-value');
+            
+            // First, process all items to handle multi-language properties
+            // We group them by their parent <td> to ensure we don't hide everything
+            // if a property doesn't have a translation in the target language.
+            
+            const cells = document.querySelectorAll('.props td');
+            
+            cells.forEach(td => {{
+                const items = Array.from(td.querySelectorAll('.lang-value'));
+                if (items.length === 0) return; // Skip if no language tags
+                
+                // Find items that match the target language
+                const hasTargetLang = items.some(item => item.dataset.lang === targetLang);
+                
+                items.forEach((item, index) => {{
+                    const lang = item.dataset.lang;
+                    
+                    // Always show items without specific language ("any")
+                    if (lang === 'any') {{
+                        item.classList.remove('hidden');
+                        
+                        // Clean up commas for "any" items
+                        const nextNode = item.nextSibling;
+                        if (nextNode && nextNode.nodeType === Node.TEXT_NODE) {{
+                            nextNode.textContent = (index < items.length - 1) ? ", " : "";
+                        }}
+                    }} 
+                    // If we have the target language, only show that one
+                    else if (hasTargetLang) {{
+                        if (lang === targetLang) {{
+                            item.classList.remove('hidden');
+                        }} else {{
+                            item.classList.add('hidden');
+                        }}
+                    }} 
+                    // Fallback: If we don't have the target lang, show English or the first available
+                    else {{
+                        const fallbackLang = items.some(i => i.dataset.lang === 'en') ? 'en' : items[0].dataset.lang;
+                        if (lang === fallbackLang) {{
+                            item.classList.remove('hidden');
+                        }} else {{
+                            item.classList.add('hidden');
+                        }}
+                    }}
+                }});
+                
+                // Clean up trailing commas in the cell after hiding elements
+                cleanUpCommas(td);
+            }});
+        }}
+        
+        function cleanUpCommas(container) {{
+            const visibleItems = Array.from(container.querySelectorAll('.lang-value:not(.hidden)'));
+            
+            visibleItems.forEach((item, index) => {{
+                // Find the next text node (which contains the comma)
+                let nextNode = item.nextSibling;
+                
+                // If there's a text node after this item
+                if (nextNode && nextNode.nodeType === Node.TEXT_NODE) {{
+                    // If it's the last visible item, remove the comma
+                    if (index === visibleItems.length - 1) {{
+                        nextNode.textContent = "";
+                    }} 
+                    // Otherwise, ensure there is a comma
+                    else {{
+                        nextNode.textContent = ", ";
+                    }}
+                }}
+            }});
+        }}
+
+        // Listen for manual changes
+        select.addEventListener('change', (e) => {{
+            updateLanguage(e.target.value);
+            // Save preference
+            try {{ localStorage.setItem('preferred-lang', e.target.value); }} catch(e) {{}}
+        }});
+
+        // Determine initial language
+        let initialLang = 'pt-br';
+        try {{
+            const saved = localStorage.getItem('preferred-lang');
+            if (saved) {{
+                initialLang = saved;
+            }} else {{
+                // Try to get from browser
+                const browserLang = navigator.language.toLowerCase();
+                if (browserLang.startsWith('en')) initialLang = 'en';
+            }}
+        }} catch(e) {{}}
+        
+        // Set dropdown and trigger update
+        select.value = initialLang;
+        updateLanguage(initialLang);
+    }});
+</script>
 </body>
 </html>"""
     
