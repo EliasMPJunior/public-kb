@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namespace ID (NID) - KB Elias</title>
+    <style>
+        :root {
+            --text: #333;
+            --muted: #666;
+            --rule: #eaeaea;
+            --accent: #1f4f9a;
+            --bg: #fdfdfd;
+        }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        header {
+            border-bottom: 2px solid var(--rule);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            margin: 0 0 10px 0;
+            color: var(--accent);
+        }
+        h2 {
+            border-bottom: 1px solid var(--rule);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        code {
+            background: #f1f1f1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #d63384;
+        }
+        .entity {
+            background: white;
+            border: 1px solid var(--rule);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .entity-title {
+            margin-top: 0;
+            color: var(--accent);
+        }
+        .uri {
+            font-family: monospace;
+            color: var(--muted);
+            margin-bottom: 15px;
+            display: block;
+            word-break: break-all;
+        }
+        .props {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .props th, .props td {
+            text-align: left;
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--rule);
+        }
+        .props th {
+            width: 30%;
+            color: var(--muted);
+            font-weight: normal;
+        }
+        .rdf-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .rdf-link:hover {
+            background: #153b75;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Namespace ID (NID)</h1>
+        <p>Vocabulário e identificadores de recursos da base de conhecimento de Elias Magalhães.</p>
+        <p><strong>URI Base:</strong> <code>http://kb.elias.eng.br/nid.ttl#</code></p>
+        <a href="/nid.ttl" class="rdf-link">⬇ Baixar dados RDF (Turtle)</a>
+    </header>
+
+    <section>
+        <h2>Indivíduos Nomeados (Named Individuals)</h2>
+
+        <div class="entity" id="Elias">
+            <h3 class="entity-title">Elias</h3>
+            <span class="uri">http://kb.elias.eng.br/nid.ttl#Elias</span>
+            <table class="props">
+                <tr><th>Tipo</th><td>foaf:Person</td></tr>
+                <tr><th>Nome</th><td>Elias Magalhães da Paixão Junior</td></tr>
+                <tr><th>Profissão</th><td>Engenheiro Pesquisador / Research Engineer</td></tr>
+                <tr><th>Página Inicial</th><td><a href="https://elias.eng.br/">https://elias.eng.br/</a></td></tr>
+                <tr><th>Organizações</th><td>Brasidata, Zigurat</td></tr>
+            </table>
+        </div>
+
+        <div class="entity" id="InfoBIM">
+            <h3 class="entity-title">InfoBIM</h3>
+            <span class="uri">http://kb.elias.eng.br/nid.ttl#InfoBIM</span>
+            <table class="props">
+                <tr><th>Tipo</th><td>foaf:Project, schema:SoftwareSourceCode</td></tr>
+                <tr><th>Nome</th><td>InfoBIM Framework</td></tr>
+                <tr><th>Linguagem</th><td>Python</td></tr>
+                <tr><th>Criador</th><td><a href="#Elias">Elias</a></td></tr>
+            </table>
+        </div>
+
+        <div class="entity" id="FELA">
+            <h3 class="entity-title">F.E.L.A.</h3>
+            <span class="uri">http://kb.elias.eng.br/nid.ttl#FELA</span>
+            <table class="props">
+                <tr><th>Tipo</th><td>schema:Group</td></tr>
+                <tr><th>Nome</th><td>F.E.L.A.</td></tr>
+                <tr><th>Membro</th><td><a href="#Elias">Elias</a></td></tr>
+            </table>
+        </div>
+
+        <div class="entity" id="EliasMPJunior_github">
+            <h3 class="entity-title">Conta GitHub</h3>
+            <span class="uri">http://kb.elias.eng.br/nid.ttl#EliasMPJunior_github</span>
+            <table class="props">
+                <tr><th>Tipo</th><td>foaf:OnlineAccount</td></tr>
+                <tr><th>Página Inicial</th><td><a href="https://github.com/EliasMPJunior">https://github.com/EliasMPJunior</a></td></tr>
+            </table>
+        </div>
+
+    </section>
+</div>
+
+</body>
+</html>

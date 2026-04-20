@@ -1,9 +1,144 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>KB</title>
-</head>
-<body>
-  <h1>Funcionou</h1>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Elias Magalhães</title>
+    <style>
+      :root {
+        --text: #111;
+        --muted: #555;
+        --rule: #ddd;
+        --accent: #1f4f9a;
+        --bg: #fff;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font: 15px/1.45 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+      .page {
+        max-width: 920px;
+        margin: 32px auto;
+        padding: 0 18px 48px;
+      }
+      header {
+        border-bottom: 2px solid var(--rule);
+        padding-bottom: 14px;
+        margin-bottom: 22px;
+      }
+      h1 {
+        margin: 0;
+        font-size: 32px;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+      }
+      .headline {
+        margin-top: 6px;
+        font-size: 16px;
+        color: var(--muted);
+      }
+      .contact {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 14px;
+      }
+      .contact a { color: inherit; text-decoration: none; border-bottom: 1px dotted transparent; }
+      .contact a:hover { border-bottom-color: var(--muted); }
+      section { margin-top: 22px; }
+      h2 {
+        margin: 0 0 10px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+      }
+      .item { margin: 10px 0 0; }
+      .item-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 6px 12px;
+      }
+      .item-title { font-weight: 700; }
+      .item-meta { color: var(--muted); }
+      .item-submeta { color: var(--muted); font-size: 14px; margin-top: 2px; }
+      ul { margin: 8px 0 0; padding-left: 18px; }
+      li { margin: 4px 0; }
+      .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+      .chip {
+        display: inline-block;
+        padding: 6px 10px;
+        border: 1px solid var(--rule);
+        border-radius: 999px;
+        font-size: 13px;
+        color: var(--text);
+        background: #fafafa;
+      }
+      .muted { color: var(--muted); }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      @media (min-width: 860px) {
+        .two-col { grid-template-columns: 1.4fr 1fr; }
+      }
+      .rule { border-top: 1px solid var(--rule); margin-top: 18px; padding-top: 18px; }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <h1>Elias Magalhães</h1>
+        
+        
+        <div class="contact">
+          <span>eliasmagalhaesbr@gmail.com</span>
+          <span>+55 21 999-556-033</span>
+          
+          <a href="https://elias.eng.br/">https://elias.eng.br/</a>
+          
+          
+        </div>
+        
+      </header>
+
+      
+
+      <div class="two-col">
+        <div>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+        </div>
+
+        <div>
+          
+
+          
+
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
