@@ -34,7 +34,26 @@ def generate_html(graph: Graph, base_uri: str) -> str:
     subjects = set(graph.subjects(None, None))
     
     # Filter out blank nodes and ontology definition itself
-    subjects = [s for s in subjects if isinstance(s, URIRef) and str(s) != base_uri.rstrip("#")]
+    filtered_subjects = []
+    for s in subjects:
+        if not isinstance(s, URIRef):
+            continue
+        if str(s) == base_uri.rstrip("#"):
+            continue
+            
+        # Check if it's an AnnotationProperty or Class
+        types = list(graph.objects(s, RDF.type))
+        if URIRef("http://www.w3.org/2002/07/owl#AnnotationProperty") in types:
+            continue
+            
+        # Ignore owl:Class UNLESS it belongs to our own namespace (base_uri)
+        if URIRef("http://www.w3.org/2002/07/owl#Class") in types:
+            if not str(s).startswith(base_uri):
+                continue
+                
+        filtered_subjects.append(s)
+        
+    subjects = filtered_subjects
     
     # Sort subjects by local name
     subjects.sort(key=lambda s: get_local_name(s))
@@ -102,7 +121,7 @@ def generate_html(graph: Graph, base_uri: str) -> str:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Namespace ID (NID) - KB Elias</title>
+    <title>Base Namespace (NID) - KB Elias</title>
     <style>
         :root {{
             --text: #333;
@@ -217,7 +236,7 @@ def generate_html(graph: Graph, base_uri: str) -> str:
     <header>
         <div class="header-controls">
             <div>
-                <h1>Namespace ID (NID)</h1>
+                <h1>Base Namespace (NID)</h1>
                 <p>Vocabulário e identificadores de recursos da base de conhecimento de Elias Magalhães.</p>
                 <p><strong>URI Base:</strong> <code>{html.escape(base_uri)}</code></p>
                 <a href="/nid.ttl" class="rdf-link">⬇ Baixar dados RDF (Turtle)</a>
