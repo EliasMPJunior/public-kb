@@ -158,24 +158,24 @@ schema:SoftwareSourceCode rdf:type owl:Class .
 #################################################################
 
 ###  http://elias.eng.br/ontology/Brasidata
-<http://elias.eng.br/ontology/Brasidata> rdf:type owl:NamedIndividual ,
+elias:Brasidata rdf:type owl:NamedIndividual ,
                                                   foaf:Organization ;
                                          schema:name "Brasidata" .
 
 
 ###  http://elias.eng.br/ontology/Zigurat
-<http://elias.eng.br/ontology/Zigurat> rdf:type owl:NamedIndividual ,
+elias:Zigurat rdf:type owl:NamedIndividual ,
                                                 foaf:Organization ;
                                        schema:name "Zigurat" .
 
 
 ###  http://kb.elias.eng.br/nid#Elias
-<http://kb.elias.eng.br/nid#Elias> rdf:type owl:NamedIndividual ,
+elias:Elias rdf:type owl:NamedIndividual ,
                                            foaf:Person ;
-                                  org:hasMembership <http://elias.eng.br/ontology/OwnerInBrasidata> ,
-                                                    <http://elias.eng.br/ontology/Zigurat> ;
+                                  org:hasMembership elias:Brasidata ,
+                                                    elias:Zigurat ;
                                   foaf:birthday "03-29" ;
-                                  foaf:currentProject <http://elias.eng.br/ontology/InfoBIM> ;
+                                  foaf:currentProject elias:InfoBIM ;
                                   foaf:familyName "Magalhães"@en ,
                                                   "Magalhães da Paixão"@pt-br ;
                                   foaf:firstName "Elias" ;
@@ -184,21 +184,21 @@ schema:SoftwareSourceCode rdf:type owl:Class .
                                                  "Elias"@pt-br ;
                                   foaf:homepage "https://elias.eng.br/" ;
                                   foaf:lastName "Paixão Junior" ;
-                                  foaf:made <http://elias.eng.br/ontology/InfoBIM> ;
+                                  foaf:made elias:InfoBIM ;
                                   foaf:mbox "eliasmagalhaesbr@gmail.com" ;
                                   foaf:name "Elias Magalhães"@en ,
                                             "Elias Magalhães da Paixão Junior"@pt-br ;
                                   foaf:nickname "Sonecka" ;
-                                  foaf:pastProject <http://kb.elias.eng.br/nid#CDECerti> ;
+                                  foaf:pastProject elias:CDECerti ;
                                   foaf:phone "+55 21 999-556-033" ;
                                   foaf:title "Eng."@en ,
                                              "Engº"@pt-br ;
                                   schema:jobTitle "Engenheiro Pesquisador"@pt-br ,
                                                   "Research Engineer"@en ;
-                                  schema:knowsAbout <http://elias.eng.br/ontology/IFC> ,
-                                                    <http://elias.eng.br/ontology/Python> ,
-                                                    <http://elias.eng.br/ontology/SemanticWeb> ;
-                                  schema:owns <http://elias.eng.br/ontology/Brasidata> .
+                                  schema:knowsAbout elias:IFC ,
+                                                    elias:Python ,
+                                                    elias:SemanticWeb ;
+                                  schema:owns elias:Brasidata .
 
 
 ###  http://kb.elias.eng.br/nid#EliasMPJunior_github
@@ -215,17 +215,17 @@ elias:FELA rdf:type owl:NamedIndividual ,
 
 
 ###  http://kb.elias.eng.br/nid#InfoBIM
-<http://kb.elias.eng.br/nid#InfoBIM> rdf:type owl:NamedIndividual ,
+elias:InfoBIM rdf:type owl:NamedIndividual ,
                                              foaf:Project ,
                                              schema:SoftwareSourceCode ;
-                                    foaf:maker <http://kb.elias.eng.br/nid#Elias> ;
+                                    foaf:maker elias:Elias ;
                                     schema:license "Open Source" ;
                                     schema:name "InfoBIM Framework" ;
                                     schema:programmingLanguage "Python" .
 
 
 ###  http://kb.elias.eng.br/nid#eliasmagalhaesbr_gmail
-<http://kb.elias.eng.br/nid#eliasmagalhaesbr_gmail> rdf:type owl:NamedIndividual ,
+elias:eliasmagalhaesbr_gmail rdf:type owl:NamedIndividual ,
                                                             foaf:Email ,
                                                             foaf:OnlineAccount ;
                                                    foaf:mbox "eliasmagalhaesbr@gmail.com" .
