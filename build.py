@@ -76,7 +76,7 @@ def generate_html(graph: Graph, base_uri: str) -> str:
             p_name = get_local_name(p)
             # Use prefixed names for common properties for better readability
             if p == RDF.type:
-                p_name = "Tipo (rdf:type)"
+                p_name = "Type (rdf:type)"
             elif str(p).startswith(str(FOAF)):
                 p_name = f"foaf:{get_local_name(p)}"
             elif str(p).startswith("https://schema.org/"):
@@ -117,7 +117,7 @@ def generate_html(graph: Graph, base_uri: str) -> str:
 
     # HTML Template
     template = f"""<!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -237,19 +237,19 @@ def generate_html(graph: Graph, base_uri: str) -> str:
         <div class="header-controls">
             <div>
                 <h1>Base Namespace (NID)</h1>
-                <p>Vocabulário e identificadores de recursos da base de conhecimento de Elias Magalhães.</p>
-                <p><strong>URI Base:</strong> <code>{html.escape(base_uri)}</code></p>
-                <a href="/nid.ttl" class="rdf-link">⬇ Baixar dados RDF (Turtle)</a>
+                <p>Vocabulary and resource identifiers for Elias Magalhães's knowledge base.</p>
+                <p><strong>Base URI:</strong> <code>{html.escape(base_uri)}</code></p>
+                <a href="/nid.ttl" class="rdf-link">⬇ Download RDF data (Turtle)</a>
             </div>
             <select id="lang-select" class="lang-selector">
-                <option value="pt-br">🇧🇷 Português (pt-BR)</option>
-                <option value="en">🇺🇸 English (en)</option>
+                <option value="en">�� English (en)</option>
+                <option value="pt-br">�� Portuguese (pt-BR)</option>
             </select>
         </div>
     </header>
 
     <section>
-        <h2>Indivíduos Nomeados (Named Individuals)</h2>
+        <h2>Named Individuals</h2>
         {"".join(entities_html)}
     </section>
 </div>
@@ -341,7 +341,7 @@ def generate_html(graph: Graph, base_uri: str) -> str:
         }});
 
         // Determine initial language
-        let initialLang = 'pt-br';
+        let initialLang = 'en';
         try {{
             const saved = localStorage.getItem('preferred-lang');
             if (saved) {{
@@ -349,7 +349,7 @@ def generate_html(graph: Graph, base_uri: str) -> str:
             }} else {{
                 // Try to get from browser
                 const browserLang = navigator.language.toLowerCase();
-                if (browserLang.startsWith('en')) initialLang = 'en';
+                if (browserLang.startsWith('pt')) initialLang = 'pt-br';
             }}
         }} catch(e) {{}}
         
