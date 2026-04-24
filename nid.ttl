@@ -236,14 +236,31 @@ elias:Civil_Engerineering rdf:type owl:NamedIndividual ,
 
 
 elias:Information_Technology rdf:type owl:NamedIndividual ,
-                     cv:Education .
+                     cv:Education ;
+                     cv:studiedIn bdc_org:Uniabeu ;
+                    schema:name "Bacharelado em Tecnologia de Informação"@pt-br ,
+                              "Bachelor's Degree in Information Technology"@en ;
+                     cv:eduGradDate "2007-12-01" ;
+                     cv:Locality "Brasil"@pt-br ,
+                              "Brazil"@en .
+
+elias:bSI_Certification rdf:type owl:NamedIndividual ,
+                     cv:Course ;
+                     cv:courseTitle "Certificação Profissional buildingSMART - Nível Fundamentos"@pt-br ,
+                              "buildingSMART Professional Certification - Foundation Level"@en ;
+                     cv:isCertification true ;
+                     cv:organizedBy bdc_org:buildingSMART ;
+                     cv:courseFinishDate "2024-09-01" ;
+                     cv:courseURL "https://education.buildingsmart.org/foundation/"^^xsd:anyURI .
 
 
 ###  http://kb.elias.eng.br/nid.ttl#EliasBIMCoordinatorProfile
 elias:bim_coordinator_profile rdf:type owl:NamedIndividual ,
                                           bdc_role:BIMCoordinatorProfile ,
                                           cv:CV ;
-                                        cv:hasEducation elias:Civil_Engerineering .
+                                        cv:hasEducation elias:Civil_Engerineering ,
+                                                        elias:Information_Technology ;
+                                        cv:hasCourse elias:bSI_Certification .
 
 
 ###  http://kb.elias.eng.br/nid.ttl#EliasBIMResearcherProfile
@@ -254,14 +271,18 @@ elias:bim_researcher_profile rdf:type owl:NamedIndividual ,
                                          "BIM Research Engineer"@en ;
             cv:targetJobDescription "Engenheiro pesquisador em BIM que trabalha o BIM como infraestrutura de dados, e não com desenhos ou maquetes. Especialista em interoperabilidade, IFC, ontologias, auditoria de modelos, automação e desenvolvimento de sistemas para gestão da informação na construção civil. Uno pesquisa aplicada, engenharia e desenvolvimento de software para criar soluções robustas de governança, integração e escalabilidade de dados no ecossistema AECOO."@pt-br ,
                              "BIM research engineer who treats BIM as data infrastructure, not as drawings or useless 3D mockups. Specialist in interoperability, IFC, ontologies, model auditing, automation, and the development of information management systems for the construction industry. I combine applied research, engineering, and software development to create robust solutions for data governance, integration, and scalability across the AECO ecosystem."@en ;
-                                        cv:hasEducation elias:Civil_Engerineering .
+                                        cv:hasEducation elias:Civil_Engerineering ,
+                                                        elias:Information_Technology ;
+                                        cv:hasCourse elias:bSI_Certification .
 
 
 ###  http://kb.elias.eng.br/nid.ttl#EliasBIMTechLeadProfile
 elias:bim_tech_lead_profile rdf:type owl:NamedIndividual ,
                                        bdc_role:BIMTechLeadProfile ,
                                        cv:CV ;
-                                        cv:hasEducation elias:Civil_Engerineering .
+                                        cv:hasEducation elias:Civil_Engerineering ,
+                                                        elias:Information_Technology ;
+                                        cv:hasCourse elias:bSI_Certification .
 
 
 ###  http://kb.elias.eng.br/nid.ttl#EliasMPJunior_github
