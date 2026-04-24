@@ -254,6 +254,59 @@ elias:bSI_Certification rdf:type owl:NamedIndividual ,
                      cv:courseURL "https://education.buildingsmart.org/foundation/"^^xsd:anyURI .
 
 
+elias:Work_CERTI rdf:type owl:NamedIndividual ,
+                              cv:WorkHistory ;
+                     cv:employedIn bdc_org:CERTI ;
+                     cv:startDate "2023-01-01" ;
+                     cv:endDate "2025-01-01" ;
+                     cv:jobTitle "Engenheiro Pesquisador - Especialista BIM & Arquiteto Backend"@pt-br ,
+                                 "Research Engineer - BIM Specialist & Backend Architect"@en ;
+                     cv:jobDescription "Desenvolveu um Ambiente Comum de Dados (CDE) em conformidade com a ISO 19650 para projetos de Óleo e Gás. Projetou fluxos de auditoria de modelos para redes de tubulação usando IFC, divididos em estrutura de arquivos, regras duráveis e regras específicas do projeto. Criou e validou IDS para verificação de regras e conformidade (LOIN, BEP, normas NBR). Aplicou Event Sourcing com TDD para avaliação estruturada de regras e rastreamento histórico. Integrou pipelines de assinatura digital para trilhas de auditoria e aprovações coordenadas da equipe."@pt-br ,
+                                       "Developed a Common Data Environment (CDE) compliant with ISO 19650 for Oil & Gas projects. Designed model audit workflows for piping networks using IFC, split into file structure, durable rules, and project-specific rules. Created and validated IDS for rule checking and compliance (LOIN, BEP, NBR standards). Applied Event Sourcing with TDD for structured rule evaluation and historical tracking. Integrated digital signature pipelines for audit trails and coordinated team approvals."@en .
+
+elias:Work_Concat rdf:type owl:NamedIndividual ,
+                              cv:WorkHistory ;
+                     cv:employedIn bdc_org:Concat ;
+                     cv:startDate "2019-01-01" ;
+                     cv:endDate "2022-12-01" ;
+                     cv:jobTitle "Cofundador - Desenvolvimento BIM & API"@pt-br ,
+                                 "Co-Founder - BIM & API Development"@en ;
+                     cv:jobDescription "Desenvolveu uma ferramenta inteligente de orçamento para sistemas hidráulicos/elétricos de piscinas com visualização GLTF e exportação IFC. Criou APIs RESTful e microsserviços para o setor AEC e automação industrial. Construiu uma ferramenta automatizada de verificação de conformidade com XML MVDs, integração com Google Sheets e validação baseada em API. Criou scripts usando IfcOpenShell para converter IFC em GLTF e B-Rep para displays de marketing e instruções de montagem."@pt-br ,
+                                       "Developed a smart budgeting tool for hydraulic/electric pool systems with GLTF visualization and IFC export. Created RESTful APIs and microservices for the AEC and industrial automation sector. Built automated compliance checking tool with XML MVDs, Google Sheets integration, and API-based validation. Created scripts using IfcOpenShell to convert IFC into GLTF and B-Rep for marketing displays and assembly instructions."@en .
+
+elias:Work_InfraCidades rdf:type owl:NamedIndividual ,
+                              cv:WorkHistory ;
+                     cv:employedIn bdc_org:InfraCidades ;
+                     cv:startDate "2022-01-01" ;
+                     cv:endDate "2023-12-01" ;
+                     cv:jobTitle "Instrutor BIM - Transformação Digital AEC"@pt-br ,
+                                 "BIM Trainer - AEC Digital Transformation"@en ;
+                     cv:jobDescription "Ministrou treinamento BIM prático para profissionais do setor público em todo o Brasil. Estruturou projetos piloto usando Revit, BlenderBIM, Dynamo, IfcOpenShell e VS Code. Ensinou modelagem paramétrica, estruturação de dados para auditoria e scripts de automação. Capacitou equipes para implementar conceitos de CDE e processos de exportação IFC alinhados com padrões abertos."@pt-br ,
+                                       "Delivered hands-on BIM training to public sector professionals across Brazil. Structured pilot projects using Revit, BlenderBIM, Dynamo, IfcOpenShell, and VS Code. Taught parametric modeling, audit-ready data structuring, and automation scripts. Enabled teams to implement CDE concepts and IFC export processes aligned with open standards."@en .
+
+
+elias:Work_ReforceSul rdf:type owl:NamedIndividual ,
+                              cv:WorkHistory ;
+                     cv:employedIn bdc_org:ReforceSul ;
+                     cv:startDate "2015-01-01" ;
+                     cv:endDate "2016-12-01" ;
+                     cv:jobTitle "Consultor Técnico - Obras Costeiras"@pt-br ,
+                                 "Technical Consultant - Coastal Works"@en ;
+                     cv:jobDescription "Automatizou modelos de orçamento e simulação para obras de reforço de marinas. Projetou cronograma de execução alinhado com janelas de maré usando scripts em Python e automação no Excel."@pt-br ,
+                                       "Automated budgeting and simulation models for marina reinforcement works. Designed execution schedule aligned with tidal windows using Python scripting and Excel automation."@en .
+
+
+elias:Work_Tecgraf rdf:type owl:NamedIndividual ,
+                             cv:WorkHistory ;
+                    cv:employedIn bdc_org:PUC_Rio ;
+                    cv:startDate "2017-01-01" ;
+                    cv:endDate "2018-12-01" ;
+                    cv:jobTitle "Pesquisador - BIM para Patrimônio Histórico"@pt-br ,
+                                "Researcher - BIM for Heritage Projects"@en ;
+                    cv:jobDescription "Investigou aplicação de BIM para documentação de edifícios históricos. Construiu parsers customizados IFC-to-JSON para indexação espacial e rotulagem semântica. Integrou MongoDB com dados não estruturados de patrimônio para exploração visual."@pt-br ,
+                                      "Investigated BIM application to historic building documentation. Built custom IFC-to-JSON parsers for spatial indexing and semantic labeling. Integrated MongoDB with non-structured heritage data for visual exploration."@en .
+
+
 elias:Work_Brasidata rdf:type owl:NamedIndividual ,
                              cv:WorkHistory ;
                     cv:employedIn bdc_org:Brasidata ;
@@ -264,15 +317,17 @@ elias:Work_Brasidata rdf:type owl:NamedIndividual ,
                     cv:jobDescription "Liderança de equipe no desenvolvimento de soluções em Web Semântica e automação de engenharia para gestão de projetos BIM."@pt-br ,
                                       "Team leadership in developing Semantic Web solutions and engineering automation for BIM project management."@en .
 
+
 elias:Work_Zigurat rdf:type owl:NamedIndividual ,
                             cv:WorkHistory ;
                    cv:employedIn bdc_org:Zigurat ;
-                   cv:startDate "2022-03-01" ;
-                   cv:endDate "2023-12-01" ;
+                   cv:startDate "2026-03-01" ;
+                   cv:isCurrent "true" ;
                    cv:jobTitle "Professor de Master em BIM"@pt-br ,
                                "BIM Master Professor"@en ;
                    cv:jobDescription "Professor responsável pelas disciplinas de interoperabilidade (IFC) e gestão da informação em OpenBIM."@pt-br ,
                                      "Professor responsible for interoperability (IFC) and information management in OpenBIM subjects."@en .
+
 
 ###  http://kb.elias.eng.br/nid.ttl#EliasBIMCoordinatorProfile
 elias:bim_coordinator_profile rdf:type owl:NamedIndividual ,
@@ -281,7 +336,7 @@ elias:bim_coordinator_profile rdf:type owl:NamedIndividual ,
                                         cv:hasEducation elias:Civil_Engerineering ,
                                                         elias:Information_Technology ;
                                         cv:hasCourse elias:bSI_Certification ;
-                                        cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat ;
+                                        cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat , elias:Work_Tecgraf , elias:Work_ReforceSul , elias:Work_InfraCidades , elias:Work_Concat , elias:Work_CERTI ;
                                         bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills .
 
 
@@ -296,7 +351,7 @@ elias:bim_researcher_profile rdf:type owl:NamedIndividual ,
                                         cv:hasEducation elias:Civil_Engerineering ,
                                                         elias:Information_Technology ;
                                         cv:hasCourse elias:bSI_Certification ;
-                                        cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat ;
+                                        cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat , elias:Work_Tecgraf , elias:Work_ReforceSul , elias:Work_InfraCidades , elias:Work_Concat , elias:Work_CERTI ;
                                         bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills .
 
 
@@ -307,7 +362,7 @@ elias:bim_tech_lead_profile rdf:type owl:NamedIndividual ,
                                         cv:hasEducation elias:Civil_Engerineering ,
                                                         elias:Information_Technology ;
                                         cv:hasCourse elias:bSI_Certification ;
-                                        cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat ;
+                                        cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat , elias:Work_Tecgraf , elias:Work_ReforceSul , elias:Work_InfraCidades , elias:Work_Concat , elias:Work_CERTI ;
                                         bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills .
 
 
@@ -395,4 +450,16 @@ elias:Automation_Skills rdf:type owl:NamedIndividual ,
                                             cv:skillLevel "Advanced" ] ,
                                         [ rdf:type cv:Skill ;
                                             cv:skillName "Semantic Web" ;
+                                            cv:skillLevel "Advanced" ] ,
+                                        [ rdf:type cv:Skill ;
+                                            cv:skillName "REST APIs" ;
+                                            cv:skillLevel "Advanced" ] ,
+                                        [ rdf:type cv:Skill ;
+                                            cv:skillName "RPA" ;
+                                            cv:skillLevel "Advanced" ] ,
+                                        [ rdf:type cv:Skill ;
+                                            cv:skillName "Asynchronous Processing" ;
+                                            cv:skillLevel "Advanced" ],
+                                        [ rdf:type cv:Skill ;
+                                            cv:skillName "ETL" ;
                                             cv:skillLevel "Advanced" ] .
