@@ -191,7 +191,8 @@ bdc_org:Zigurat rdf:type owl:NamedIndividual .
 
 ###  http://kb.elias.eng.br/nid.ttl#Elias
 elias:Elias rdf:type owl:NamedIndividual ,
-                     foaf:Person ;
+                     foaf:Person ,
+                     cv:Person;
             org:hasMembership bdc_org:Brasidata ,
                               bdc_org:Zigurat ;
             foaf:currentProject elias:InfoBIM ;
@@ -219,14 +220,19 @@ elias:Elias rdf:type owl:NamedIndividual ,
             schema:knowsAbout elias:IFC ,
                               elias:Python ,
                               elias:SemanticWeb ;
-            schema:owns bdc_org:Brasidata .
+            schema:owns bdc_org:Brasidata ;
+            cv:hasNationality "Brasileiro"@pt-br, "Brazilian"@en .
 
 
 elias:Civil_Engerineering rdf:type owl:NamedIndividual ,
                      cv:Education ;
-                     cv:studiedIn bdc_org:PUC_Rio .
+                     cv:studiedIn bdc_org:PUC_Rio ;
+                    schema:name "Bacharelado em Engenharia Civil"@pt-br ,
+                              "Bachelor's Degree in Civil Engineering"@en ;
+                     cv:eduGradDate "2018-07-01" ;
+                     cv:Locality "Brasil"@pt-br ,
+                              "Brazil"@en .
                     # cv:eduStartDate cv:eduGradDate cv:degreeType cv:eduMajor cv:eduMinor cv:eduDescription
-
 
 
 elias:Information_Technology rdf:type owl:NamedIndividual ,
