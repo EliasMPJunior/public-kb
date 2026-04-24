@@ -1,0 +1,43 @@
+@prefix : <http://kb.elias.eng.br/nid/jobs.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix cv: <http://rdfs.org/resume-rdf/cv.rdfs#> .
+@prefix bdc_org: <http://datacenter.app.br/nid/social/organization.ttl#> .
+@prefix bdc_role: <http://datacenter.app.br/nid/social/role.ttl#> .
+@base <http://kb.elias.eng.br/nid/jobs.ttl#> .
+
+<http://kb.elias.eng.br/nid/jobs.ttl> rdf:type owl:Ontology .
+
+#################################################################
+#    Job Posting: Engrena BIM - Coordenador/Analista de Projetos BIM
+#################################################################
+
+:EngrenaBIM_Analista_Compatibilizacao rdf:type owl:NamedIndividual ,
+                                               schema:JobPosting ;
+    schema:inLanguage "pt-br" ;
+    schema:title "Engenheiro(a) Civil ou Arquiteto(a) - Compatibilização BIM"@pt-br ;
+    schema:hiringOrganization [ rdf:type schema:Organization ;
+                                schema:name "Engrena BIM" ] ;
+    schema:jobLocationType "TELECOMMUTE" ; # Formato: Remoto
+    schema:description "Buscamos profissional com visão técnica, senso crítico e experiência prática na integração entre disciplinas. Atuação direta em análise e compatibilização de projetos em BIM."@pt-br ;
+    schema:employmentType "FULL_TIME" ;
+    
+    # Requisitos de Formação (Mínimo de 5 anos)
+    schema:educationRequirements [ rdf:type schema:EducationalOccupationalCredential ;
+                                   schema:credentialCategory "Degree" ;
+                                   schema:name "Engenharia Civil ou Arquitetura"@pt-br ;
+                                   schema:educationalLevel "Bacharelado"@pt-br ] ;
+    
+    # Requisitos de Experiência (5 anos no geral, focado em compatibilização)
+    schema:experienceRequirements [ rdf:type schema:OccupationalExperienceRequirements ;
+                                    schema:monthsOfExperience "60"^^xsd:integer ] ;
+    
+    # Habilidades Exigidas
+    schema:skills [ rdf:type cv:Skill ;
+                    cv:skillName "Compatibilização de Projetos"@pt-br ] ,
+                  [ rdf:type cv:Skill ;
+                    cv:skillName "Integração de Projetos"@pt-br ] ,
+                  [ rdf:type cv:Skill ;
+                    cv:skillName "BIM"@pt-br ] .
