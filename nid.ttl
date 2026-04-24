@@ -254,6 +254,26 @@ elias:bSI_Certification rdf:type owl:NamedIndividual ,
                      cv:courseURL "https://education.buildingsmart.org/foundation/"^^xsd:anyURI .
 
 
+elias:Work_Brasidata rdf:type owl:NamedIndividual ,
+                             cv:WorkHistory ;
+                    cv:employedIn bdc_org:Brasidata ;
+                    cv:startDate "2020-01-01" ;
+                    cv:isCurrent "true" ;
+                    cv:jobTitle "Líder Técnico de BIM"@pt-br ,
+                                "BIM Technical Lead"@en ;
+                    cv:jobDescription "Liderança de equipe no desenvolvimento de soluções em Web Semântica e automação de engenharia para gestão de projetos BIM."@pt-br ,
+                                      "Team leadership in developing Semantic Web solutions and engineering automation for BIM project management."@en .
+
+elias:Work_Zigurat rdf:type owl:NamedIndividual ,
+                            cv:WorkHistory ;
+                   cv:employedIn bdc_org:Zigurat ;
+                   cv:startDate "2022-03-01" ;
+                   cv:endDate "2023-12-01" ;
+                   cv:jobTitle "Professor de Master em BIM"@pt-br ,
+                               "BIM Master Professor"@en ;
+                   cv:jobDescription "Professor responsável pelas disciplinas de interoperabilidade (IFC) e gestão da informação em OpenBIM."@pt-br ,
+                                     "Professor responsible for interoperability (IFC) and information management in OpenBIM subjects."@en .
+
 ###  http://kb.elias.eng.br/nid.ttl#EliasBIMCoordinatorProfile
 elias:bim_coordinator_profile rdf:type owl:NamedIndividual ,
                                           bdc_role:BIMCoordinatorProfile ,
@@ -261,6 +281,7 @@ elias:bim_coordinator_profile rdf:type owl:NamedIndividual ,
                                         cv:hasEducation elias:Civil_Engerineering ,
                                                         elias:Information_Technology ;
                                         cv:hasCourse elias:bSI_Certification ;
+                                        cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat ;
                                         bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills .
 
 
@@ -275,6 +296,7 @@ elias:bim_researcher_profile rdf:type owl:NamedIndividual ,
                                         cv:hasEducation elias:Civil_Engerineering ,
                                                         elias:Information_Technology ;
                                         cv:hasCourse elias:bSI_Certification ;
+                                        cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat ;
                                         bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills .
 
 
@@ -285,6 +307,7 @@ elias:bim_tech_lead_profile rdf:type owl:NamedIndividual ,
                                         cv:hasEducation elias:Civil_Engerineering ,
                                                         elias:Information_Technology ;
                                         cv:hasCourse elias:bSI_Certification ;
+                                        cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat ;
                                         bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills .
 
 
@@ -314,7 +337,10 @@ elias:InfoBIM rdf:type owl:NamedIndividual ,
               foaf:maker elias:Elias ;
               schema:license "Open Source" ;
               schema:name "InfoBIM Framework" ;
-              schema:programmingLanguage "Python" .
+              schema:programmingLanguage "Python" ;
+              foaf:homepage "https://infobim.org"^^xsd:anyURI ;
+              dcterms:abstract "A modular runtime environment for Engineering Automation that bridges the gap between static BIM data and dynamic AI agents. InfoBIM provides a machine-readable catalog of tools via its Discovery Protocol, turning ad-hoc OpenBIM scripts into a repeatable production line of capabilities. It enables LLMs to orchestrate automated logic checking, IDS-native rules, and descriptive report generation directly from IFC models, acting as the capability engine for BIM automation."@en ,
+                               "Um ambiente de execução modular para Automação de Engenharia que preenche a lacuna entre dados BIM estáticos e agentes de IA dinâmicos. O InfoBIM fornece um catálogo de ferramentas legível por máquina através de seu Protocolo de Descoberta, transformando scripts OpenBIM avulsos em uma linha de produção de capacidades reutilizáveis. Ele permite que LLMs orquestrem checagens lógicas automatizadas, regras nativas IDS e geração de relatórios descritivos diretamente de modelos IFC, atuando como o motor de capacidades para a automação BIM."@pt-br .
 
 
 ###  http://kb.elias.eng.br/nid.ttl#eliasmagalhaesbr_gmail
