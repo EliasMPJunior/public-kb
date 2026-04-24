@@ -345,6 +345,10 @@ elias:Achievement_OilGas rdf:type owl:NamedIndividual ;
 elias:bim_coordinator_profile rdf:type owl:NamedIndividual ,
                                           bdc_role:BIMCoordinatorProfile ,
                                           cv:CV ;
+                                        cv:targetJobTitle "Coordenador BIM"@pt-br ,
+                                                          "BIM Coordinator"@en ;
+                                        cv:targetJobDescription "Especialista em coordenação de projetos BIM, focado na integração de disciplinas, detecção de conflitos (Clash Detection) e garantia de qualidade da informação (QA/QC). Experiência na gestão de Ambientes Comuns de Dados (CDE) e na condução de fluxos de trabalho OpenBIM para garantir a eficiência e a conformidade com as normas do setor."@pt-br ,
+                                                                "Specialist in BIM project coordination, focused on multidisciplinary integration, clash detection, and information quality assurance (QA/QC). Experienced in managing Common Data Environments (CDE) and driving OpenBIM workflows to ensure efficiency and compliance with industry standards."@en ;
                                         cv:hasEducation elias:Civil_Engerineering ,
                                                         elias:Information_Technology ;
                                         cv:hasCourse elias:bSI_Certification ;
@@ -373,6 +377,10 @@ elias:bim_researcher_profile rdf:type owl:NamedIndividual ,
 elias:bim_tech_lead_profile rdf:type owl:NamedIndividual ,
                                        bdc_role:BIMTechLeadProfile ,
                                        cv:CV ;
+                                        cv:targetJobTitle "Líder Técnico BIM"@pt-br ,
+                                                          "BIM Tech Lead"@en ;
+                                        cv:targetJobDescription "Líder técnico especializado no desenvolvimento e arquitetura de soluções BIM, Web Semântica e automação de engenharia. Focado na criação de ferramentas, APIs e integrações para escalabilidade de dados AECO, liderando equipes de desenvolvimento para transformar requisitos complexos em infraestrutura de dados eficiente."@pt-br ,
+                                                                "Technical leader specialized in the development and architecture of BIM solutions, Semantic Web, and engineering automation. Focused on creating tools, APIs, and integrations for AECO data scalability, leading development teams to transform complex requirements into efficient data infrastructure."@en ;
                                         cv:hasEducation elias:Civil_Engerineering ,
                                                         elias:Information_Technology ;
                                         cv:hasCourse elias:bSI_Certification ;
