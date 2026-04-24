@@ -329,6 +329,18 @@ elias:Work_Zigurat rdf:type owl:NamedIndividual ,
                                      "Professor responsible for interoperability (IFC) and information management in OpenBIM subjects."@en .
 
 
+elias:Achievement_bSI_Assembly rdf:type owl:NamedIndividual ;
+    schema:description "Participação ativa nas últimas 4 edições da buildingSMART Implementers Assembly, reuniões técnicas globais exclusivas para desenvolvedores de software discutirem a implementação de padrões openBIM e serviços IFC5."@pt-br ,
+                       "Active participation in the last 4 buildingSMART Implementers Assemblies, exclusive global technical meetings for software vendors to discuss the implementation of openBIM standards and IFC5 services."@en .
+
+elias:Achievement_bSI_Hackathon rdf:type owl:NamedIndividual ;
+    schema:description "Participação no Hackathon da buildingSMART no Porto (2026), desenvolvendo um fluxo de trabalho automatizado que integra extração de requisitos em PDF via LLMs, ontologias Turtle e arquivos IFC para a geração de artefatos de verificação formal (IDS/IDCS) e relatórios automatizados de conformidade utilizando ferramentas como IfcOpenShell, SymPy e ifctester."@pt-br ,
+                       "Participation in the buildingSMART Hackathon in Porto (2026), developing an automated workflow that integrates PDF requirement extraction via LLMs, Turtle ontologies, and IFC models to generate formal verification artifacts (IDS/IDCS) and automated compliance reports using tools such as IfcOpenShell, SymPy, and ifctester."@en .
+
+elias:Achievement_OilGas rdf:type owl:NamedIndividual ;
+    schema:description "Experiência avançada em modelagem e coordenação de projetos de instalações complexas focadas no setor de Óleo & Gás."@pt-br ,
+                       "Advanced experience in modeling and coordinating complex facility projects focused on the Oil & Gas sector."@en .
+
 ###  http://kb.elias.eng.br/nid.ttl#EliasBIMCoordinatorProfile
 elias:bim_coordinator_profile rdf:type owl:NamedIndividual ,
                                           bdc_role:BIMCoordinatorProfile ,
@@ -337,6 +349,7 @@ elias:bim_coordinator_profile rdf:type owl:NamedIndividual ,
                                                         elias:Information_Technology ;
                                         cv:hasCourse elias:bSI_Certification ;
                                         cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat , elias:Work_Tecgraf , elias:Work_ReforceSul , elias:Work_InfraCidades , elias:Work_Concat , elias:Work_CERTI ;
+                                        bdc_role:hasAchievement elias:Achievement_bSI_Assembly , elias:Achievement_bSI_Hackathon , elias:Achievement_OilGas ;
                                         bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills .
 
 
@@ -352,6 +365,7 @@ elias:bim_researcher_profile rdf:type owl:NamedIndividual ,
                                                         elias:Information_Technology ;
                                         cv:hasCourse elias:bSI_Certification ;
                                         cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat , elias:Work_Tecgraf , elias:Work_ReforceSul , elias:Work_InfraCidades , elias:Work_Concat , elias:Work_CERTI ;
+                                        bdc_role:hasAchievement elias:Achievement_bSI_Assembly , elias:Achievement_bSI_Hackathon , elias:Achievement_OilGas ;
                                         bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills .
 
 
@@ -427,7 +441,8 @@ elias:BIM_Skills rdf:type owl:NamedIndividual ,
 
 elias:Automation_Skills rdf:type owl:NamedIndividual ,
                             bdc_role:SkillGroup ;
-                            schema:name "Automation" ;
+                            schema:name "Automação"@pt-br ,
+                                            "Automation"@en ;
                             cv:hasSkill [ rdf:type cv:Skill ;
                                             cv:skillName "Python" ;
                                             cv:skillLevel "Advanced" ] ,
