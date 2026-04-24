@@ -1,3 +1,5 @@
+@prefix : <http://kb.elias.eng.br/nid.ttl#> .
+@prefix cv: <http://rdfs.org/resume-rdf/cv.rdfs#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -9,81 +11,26 @@
 @prefix elias: <http://kb.elias.eng.br/nid.ttl#> .
 @prefix schema: <https://schema.org/> .
 @prefix bdc_org: <http://datacenter.app.br/nid/social/organization.ttl#> .
-@base <http://kb.elias.eng.br/nid.ttl> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix bdc_role: <http://datacenter.app.br/nid/social/role.ttl#> .
+@base <http://kb.elias.eng.br/nid.ttl#> .
 
-[ rdf:type owl:Ontology
- ] .
+<http://kb.elias.eng.br/nid.ttl> rdf:type owl:Ontology .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
-###  http://www.w3.org/ns/org#hasMembership
-org:hasMembership rdf:type owl:AnnotationProperty .
+###  http://purl.org/dc/terms/abstract
+dcterms:abstract rdf:type owl:AnnotationProperty .
 
 
-###  http://www.w3.org/ns/org#organization
-org:organization rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/ns/org#role
-org:role rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/birthday
-foaf:birthday rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/currentProject
-foaf:currentProject rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/familyName
-foaf:familyName rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/firstName
-foaf:firstName rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/gender
-foaf:gender rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/givenName
-foaf:givenName rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/homepage
-foaf:homepage rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/lastName
-foaf:lastName rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/made
-foaf:made rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/maker
-foaf:maker rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/mbox
-foaf:mbox rdf:type owl:DatatypeProperty .
+###  http://rdfs.org/resume-rdf/cv.rdfs#hasTarget
+cv:hasTarget rdf:type owl:AnnotationProperty .
 
 
 ###  http://xmlns.com/foaf/0.1/member
 foaf:member rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/name
-foaf:name rdf:type owl:DatatypeProperty .
-
-
-###  http://xmlns.com/foaf/0.1/nickname
-foaf:nickname rdf:type owl:DatatypeProperty .
 
 
 ###  http://xmlns.com/foaf/0.1/pastProject
@@ -123,8 +70,84 @@ schema:programmingLanguage rdf:type owl:AnnotationProperty .
 
 
 #################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/ns/org#hasMembership
+org:hasMembership rdf:type owl:ObjectProperty .
+
+
+###  http://xmlns.com/foaf/0.1/currentProject
+foaf:currentProject rdf:type owl:ObjectProperty .
+
+
+###  http://xmlns.com/foaf/0.1/made
+foaf:made rdf:type owl:ObjectProperty .
+
+
+###  http://xmlns.com/foaf/0.1/maker
+foaf:maker rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://xmlns.com/foaf/0.1/birthday
+foaf:birthday rdf:type owl:DatatypeProperty .
+
+
+###  http://xmlns.com/foaf/0.1/familyName
+foaf:familyName rdf:type owl:DatatypeProperty .
+
+
+###  http://xmlns.com/foaf/0.1/firstName
+foaf:firstName rdf:type owl:DatatypeProperty .
+
+
+###  http://xmlns.com/foaf/0.1/gender
+foaf:gender rdf:type owl:DatatypeProperty .
+
+
+###  http://xmlns.com/foaf/0.1/givenName
+foaf:givenName rdf:type owl:DatatypeProperty .
+
+
+###  http://xmlns.com/foaf/0.1/homepage
+foaf:homepage rdf:type owl:DatatypeProperty .
+
+
+###  http://xmlns.com/foaf/0.1/lastName
+foaf:lastName rdf:type owl:DatatypeProperty .
+
+
+###  http://xmlns.com/foaf/0.1/mbox
+foaf:mbox rdf:type owl:DatatypeProperty .
+
+
+###  http://xmlns.com/foaf/0.1/name
+foaf:name rdf:type owl:DatatypeProperty .
+
+
+###  http://xmlns.com/foaf/0.1/nickname
+foaf:nickname rdf:type owl:DatatypeProperty .
+
+
+#################################################################
 #    Classes
 #################################################################
+
+###  http://datacenter.app.br/nid/social/organization.ttl#GithubAccount
+bdc_org:GithubAccount rdf:type owl:Class .
+
+
+###  http://datacenter.app.br/nid/social/organization.ttl#LinkedInAccount
+bdc_org:LinkedInAccount rdf:type owl:Class .
+
+
+###  http://datacenter.app.br/nid/social/role.ttl#BIMCoordinatorProfile
+bdc_role:BIMCoordinatorProfile rdf:type owl:Class .
+
 
 ###  http://xmlns.com/foaf/0.1/Email
 foaf:Email rdf:type owl:Class .
@@ -156,67 +179,119 @@ schema:SoftwareSourceCode rdf:type owl:Class .
 
 #################################################################
 #    Individuals
-############################
+#################################################################
 
-###  http://kb.elias.eng.br/nid#Elias
+###  http://datacenter.app.br/nid/social/organization.ttl#Brasidata
+bdc_org:Brasidata rdf:type owl:NamedIndividual .
+
+
+###  http://datacenter.app.br/nid/social/organization.ttl#Zigurat
+bdc_org:Zigurat rdf:type owl:NamedIndividual .
+
+
+###  http://kb.elias.eng.br/nid.ttl#Elias
 elias:Elias rdf:type owl:NamedIndividual ,
-                                           foaf:Person ;
-                                  org:hasMembership bdc_org:Brasidata ,
-                                                    bdc_org:Zigurat ;
-                                  foaf:birthday "03-29" ;
-                                  foaf:currentProject elias:InfoBIM ;
-                                  foaf:familyName "Magalhães"@en ,
-                                                  "Magalhães da Paixão"@pt-br ;
-                                  foaf:firstName "Elias" ;
-                                  foaf:gender "male" ;
-                                  foaf:givenName "Elias"@en ,
-                                                 "Elias"@pt-br ;
-                                  foaf:homepage "https://elias.eng.br/"^^xsd:anyURI ;
-                                  foaf:lastName "Paixão Junior" ;
-                                  foaf:made elias:InfoBIM ;
-                                  foaf:mbox "eliasmagalhaesbr@gmail.com" ;
-                                  foaf:name "Elias Magalhães"@en ,
-                                            "Elias Magalhães da Paixão Junior"@pt-br ;
-                                  foaf:nickname "Sonecka" ;
-                                  foaf:pastProject elias:CDECerti ;
-                                  foaf:phone "+55 21 999-556-033" ;
-                                  foaf:title "Eng."@en ,
-                                             "Engº"@pt-br ;
-                                  schema:jobTitle "Engenheiro Pesquisador"@pt-br ,
-                                                  "Research Engineer"@en ;
-                                  schema:knowsAbout elias:IFC ,
-                                                    elias:Python ,
-                                                    elias:SemanticWeb ;
-                                  schema:owns bdc_org:Brasidata .
+                     foaf:Person ;
+            org:hasMembership bdc_org:Brasidata ,
+                              bdc_org:Zigurat ;
+            foaf:currentProject elias:InfoBIM ;
+            foaf:made elias:InfoBIM ;
+            foaf:birthday "03-29" ;
+            foaf:familyName "Magalhães"@en ,
+                            "Magalhães da Paixão"@pt-br ;
+            foaf:firstName "Elias" ;
+            foaf:gender "male" ;
+            foaf:givenName "Elias"@en ,
+                           "Elias"@pt-br ;
+            foaf:homepage "https://elias.eng.br/"^^xsd:anyURI ;
+            foaf:lastName "Paixão Junior" ;
+            foaf:mbox "eliasmagalhaesbr@gmail.com" ;
+            foaf:name "Elias Magalhães"@en ,
+                      "Elias Magalhães da Paixão Junior"@pt-br ;
+            foaf:nickname "Sonecka" ;
+            cv:hasTarget elias:bim_researcher_profile ,
+                              elias:bim_coordinator_profile ,
+                              elias:bim_tech_lead_profile ;
+            foaf:pastProject elias:CDECerti ;
+            foaf:phone "+55 21 999-556-033" ;
+            foaf:title "Eng."@en ,
+                       "Engº"@pt-br ;
+            schema:knowsAbout elias:IFC ,
+                              elias:Python ,
+                              elias:SemanticWeb ;
+            schema:owns bdc_org:Brasidata .
 
 
-###  http://kb.elias.eng.br/nid#EliasMPJunior_github
+elias:Civil_Engerineering rdf:type owl:NamedIndividual ,
+                     cv:Education ;
+                     cv:studiedIn bdc_org:PUC_Rio .
+                    # cv:eduStartDate cv:eduGradDate cv:degreeType cv:eduMajor cv:eduMinor cv:eduDescription
+
+
+
+elias:Information_Technology rdf:type owl:NamedIndividual ,
+                     cv:Education .
+
+
+###  http://kb.elias.eng.br/nid.ttl#EliasBIMCoordinatorProfile
+elias:bim_coordinator_profile rdf:type owl:NamedIndividual ,
+                                          bdc_role:BIMCoordinatorProfile ,
+                                          cv:CV ;
+                                        cv:hasEducation elias:Civil_Engerineering .
+
+
+###  http://kb.elias.eng.br/nid.ttl#EliasBIMResearcherProfile
+elias:bim_researcher_profile rdf:type owl:NamedIndividual ,
+                                         bdc_role:BIMResearcherProfile ,
+                                        cv:CV ;
+                                         cv:targetJobTitle "Engenheiro Pesquisador BIM"@pt-br ,
+                                         "BIM Research Engineer"@en ;
+            cv:targetJobDescription "Engenheiro pesquisador em BIM que trabalha o BIM como infraestrutura de dados, e não com desenhos ou maquetes. Especialista em interoperabilidade, IFC, ontologias, auditoria de modelos, automação e desenvolvimento de sistemas para gestão da informação na construção civil. Uno pesquisa aplicada, engenharia e desenvolvimento de software para criar soluções robustas de governança, integração e escalabilidade de dados no ecossistema AECOO."@pt-br ,
+                             "BIM research engineer who treats BIM as data infrastructure, not as drawings or useless 3D mockups. Specialist in interoperability, IFC, ontologies, model auditing, automation, and the development of information management systems for the construction industry. I combine applied research, engineering, and software development to create robust solutions for data governance, integration, and scalability across the AECO ecosystem."@en ;
+                                        cv:hasEducation elias:Civil_Engerineering .
+
+
+###  http://kb.elias.eng.br/nid.ttl#EliasBIMTechLeadProfile
+elias:bim_tech_lead_profile rdf:type owl:NamedIndividual ,
+                                       bdc_role:BIMTechLeadProfile ,
+                                       cv:CV ;
+                                        cv:hasEducation elias:Civil_Engerineering .
+
+
+###  http://kb.elias.eng.br/nid.ttl#EliasMPJunior_github
 elias:EliasMPJunior_github rdf:type owl:NamedIndividual ,
-                                                foaf:OnlineAccount ;
-                                                 foaf:homepage "https://github.com/EliasMPJunior"^^xsd:anyURI .
+                                    bdc_org:GithubAccount ;
+                           foaf:homepage "https://github.com/EliasMPJunior"^^xsd:anyURI .
 
 
-###  http://kb.elias.eng.br/nid#FELA
+###  http://kb.elias.eng.br/nid.ttl#EliasMagalhaes_linkedin
+elias:EliasMagalhaes_linkedin rdf:type owl:NamedIndividual ,
+                                       bdc_org:LinkedInAccount ;
+                              foaf:homepage "https://www.linkedin.com/in/elias-magalhaes"^^xsd:anyURI .
+
+
+###  http://kb.elias.eng.br/nid.ttl#FELA
 elias:FELA rdf:type owl:NamedIndividual ,
-                                          schema:Group ;
-                                 foaf:member elias:Elias ;
-                                 schema:name "F.E.L.A." .
+                    schema:Group ;
+           foaf:member elias:Elias ;
+           schema:name "F.E.L.A." .
 
 
-###  http://kb.elias.eng.br/nid#InfoBIM
+###  http://kb.elias.eng.br/nid.ttl#InfoBIM
 elias:InfoBIM rdf:type owl:NamedIndividual ,
-                                             foaf:Project ,
-                                             schema:SoftwareSourceCode ;
-                                    foaf:maker elias:Elias ;
-                                    schema:license "Open Source" ;
-                                    schema:name "InfoBIM Framework" ;
-                                    schema:programmingLanguage "Python" .
+                       foaf:Project ,
+                       schema:SoftwareSourceCode ;
+              foaf:maker elias:Elias ;
+              schema:license "Open Source" ;
+              schema:name "InfoBIM Framework" ;
+              schema:programmingLanguage "Python" .
 
 
-###  http://kb.elias.eng.br/nid#eliasmagalhaesbr_gmail
+###  http://kb.elias.eng.br/nid.ttl#eliasmagalhaesbr_gmail
 elias:eliasmagalhaesbr_gmail rdf:type owl:NamedIndividual ,
-                                                            foaf:Email ,
-                                                            foaf:OnlineAccount ;
-                                                   foaf:mbox "eliasmagalhaesbr@gmail.com" .
+                                      foaf:Email ,
+                                      foaf:OnlineAccount ;
+                             foaf:mbox "eliasmagalhaesbr@gmail.com" .
 
 
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
