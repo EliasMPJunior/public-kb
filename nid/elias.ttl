@@ -229,10 +229,11 @@ elias:Civil_Engerineering rdf:type owl:NamedIndividual ,
                      cv:studiedIn bdc_org:PUC_Rio ;
                     schema:name "Bacharelado em Engenharia Civil"@pt-br ,
                               "Bachelor's Degree in Civil Engineering"@en ;
-                     cv:eduGradDate "2018-07-01" ;
+                     cv:eduGradDate "2018-07-27" ;
+                     cv:eduStartDate "2012-03-01" ;
                      cv:Locality "Brasil"@pt-br ,
                               "Brazil"@en .
-                    # cv:eduStartDate cv:eduGradDate cv:degreeType cv:eduMajor cv:eduMinor cv:eduDescription
+                    # cv:eduGradDate cv:degreeType cv:eduMajor cv:eduMinor cv:eduDescription
 
 
 elias:Information_Technology rdf:type owl:NamedIndividual ,
@@ -240,7 +241,7 @@ elias:Information_Technology rdf:type owl:NamedIndividual ,
                      cv:studiedIn bdc_org:Uniabeu ;
                     schema:name "Bacharelado em Tecnologia de Informação"@pt-br ,
                               "Bachelor's Degree in Information Technology"@en ;
-                     cv:eduGradDate "2007-12-01" ;
+                     cv:eduGradDate "2007-12-28" ;
                      cv:Locality "Brasil"@pt-br ,
                               "Brazil"@en .
 
