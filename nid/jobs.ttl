@@ -29,7 +29,7 @@
                                    schema:credentialCategory "Degree" ;
                                    schema:name "Engenharia Civil ou Arquitetura"@pt-br ;
                                    schema:educationalLevel "Bacharelado"@pt-br ] ;
-    
+
     # Requisitos de Experiência (5 anos no geral, focado em compatibilização)
     schema:experienceRequirements [ rdf:type schema:OccupationalExperienceRequirements ;
                                     schema:monthsOfExperience "60"^^xsd:integer ] ;
