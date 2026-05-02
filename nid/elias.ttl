@@ -1,4 +1,4 @@
-@prefix : <http://kb.elias.eng.br/nid.ttl#> .
+@prefix : <http://kb.elias.eng.br/nid/elias.ttl#> .
 @prefix cv: <http://rdfs.org/resume-rdf/cv.rdfs#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -8,14 +8,14 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix elias: <http://kb.elias.eng.br/nid.ttl#> .
+@prefix elias: <http://kb.elias.eng.br/nid/elias.ttl#> .
 @prefix schema: <https://schema.org/> .
 @prefix bdc_org: <http://datacenter.app.br/nid/social/organization.ttl#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix bdc_role: <http://datacenter.app.br/nid/social/role.ttl#> .
-@base <http://kb.elias.eng.br/nid.ttl#> .
+@base <http://kb.elias.eng.br/nid/elias.ttl#> .
 
-<http://kb.elias.eng.br/nid.ttl> rdf:type owl:Ontology .
+<http://kb.elias.eng.br/nid/elias.ttl> rdf:type owl:Ontology .
 
 #################################################################
 #    Annotation properties
@@ -189,7 +189,7 @@ bdc_org:Brasidata rdf:type owl:NamedIndividual .
 bdc_org:Zigurat rdf:type owl:NamedIndividual .
 
 
-###  http://kb.elias.eng.br/nid.ttl#Elias
+###  http://kb.elias.eng.br/nid/elias.ttl#Elias
 elias:Elias rdf:type owl:NamedIndividual ,
                      foaf:Person ,
                      cv:Person;
@@ -229,10 +229,11 @@ elias:Civil_Engerineering rdf:type owl:NamedIndividual ,
                      cv:studiedIn bdc_org:PUC_Rio ;
                     schema:name "Bacharelado em Engenharia Civil"@pt-br ,
                               "Bachelor's Degree in Civil Engineering"@en ;
-                     cv:eduGradDate "2018-07-01" ;
+                     cv:eduGradDate "2018-07-27" ;
+                     cv:eduStartDate "2012-03-01" ;
                      cv:Locality "Brasil"@pt-br ,
                               "Brazil"@en .
-                    # cv:eduStartDate cv:eduGradDate cv:degreeType cv:eduMajor cv:eduMinor cv:eduDescription
+                    # cv:eduGradDate cv:degreeType cv:eduMajor cv:eduMinor cv:eduDescription
 
 
 elias:Information_Technology rdf:type owl:NamedIndividual ,
@@ -240,7 +241,7 @@ elias:Information_Technology rdf:type owl:NamedIndividual ,
                      cv:studiedIn bdc_org:Uniabeu ;
                     schema:name "Bacharelado em Tecnologia de Informação"@pt-br ,
                               "Bachelor's Degree in Information Technology"@en ;
-                     cv:eduGradDate "2007-12-01" ;
+                     cv:eduGradDate "2007-12-28" ;
                      cv:Locality "Brasil"@pt-br ,
                               "Brazil"@en .
 
@@ -341,10 +342,14 @@ elias:Achievement_OilGas rdf:type owl:NamedIndividual ;
     schema:description "Experiência avançada em modelagem e coordenação de projetos de instalações complexas focadas no setor de Óleo & Gás."@pt-br ,
                        "Advanced experience in modeling and coordinating complex facility projects focused on the Oil & Gas sector."@en .
 
-###  http://kb.elias.eng.br/nid.ttl#EliasBIMCoordinatorProfile
+###  http://kb.elias.eng.br/nid/elias.ttl#EliasBIMCoordinatorProfile
 elias:bim_coordinator_profile rdf:type owl:NamedIndividual ,
                                           bdc_role:BIMCoordinatorProfile ,
                                           cv:CV ;
+                                        cv:targetJobTitle "Coordenador BIM"@pt-br ,
+                                                          "BIM Coordinator"@en ;
+                                        cv:targetJobDescription "Especialista em coordenação de projetos BIM, focado na integração de disciplinas, detecção de conflitos (Clash Detection) e garantia de qualidade da informação (QA/QC). Experiência na gestão de Ambientes Comuns de Dados (CDE) e na condução de fluxos de trabalho OpenBIM para garantir a eficiência e a conformidade com as normas do setor."@pt-br ,
+                                                                "Specialist in BIM project coordination, focused on multidisciplinary integration, clash detection, and information quality assurance (QA/QC). Experienced in managing Common Data Environments (CDE) and driving OpenBIM workflows to ensure efficiency and compliance with industry standards."@en ;
                                         cv:hasEducation elias:Civil_Engerineering ,
                                                         elias:Information_Technology ;
                                         cv:hasCourse elias:bSI_Certification ;
@@ -353,7 +358,7 @@ elias:bim_coordinator_profile rdf:type owl:NamedIndividual ,
                                         bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills .
 
 
-###  http://kb.elias.eng.br/nid.ttl#EliasBIMResearcherProfile
+###  http://kb.elias.eng.br/nid/elias.ttl#EliasBIMResearcherProfile
 elias:bim_researcher_profile rdf:type owl:NamedIndividual ,
                                          bdc_role:BIMResearcherProfile ,
                                         cv:CV ;
@@ -369,10 +374,14 @@ elias:bim_researcher_profile rdf:type owl:NamedIndividual ,
                                         bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills .
 
 
-###  http://kb.elias.eng.br/nid.ttl#EliasBIMTechLeadProfile
+###  http://kb.elias.eng.br/nid/elias.ttl#EliasBIMTechLeadProfile
 elias:bim_tech_lead_profile rdf:type owl:NamedIndividual ,
                                        bdc_role:BIMTechLeadProfile ,
                                        cv:CV ;
+                                        cv:targetJobTitle "Líder Técnico BIM"@pt-br ,
+                                                          "BIM Tech Lead"@en ;
+                                        cv:targetJobDescription "Líder técnico especializado no desenvolvimento e arquitetura de soluções BIM, Web Semântica e automação de engenharia. Focado na criação de ferramentas, APIs e integrações para escalabilidade de dados AECO, liderando equipes de desenvolvimento para transformar requisitos complexos em infraestrutura de dados eficiente."@pt-br ,
+                                                                "Technical leader specialized in the development and architecture of BIM solutions, Semantic Web, and engineering automation. Focused on creating tools, APIs, and integrations for AECO data scalability, leading development teams to transform complex requirements into efficient data infrastructure."@en ;
                                         cv:hasEducation elias:Civil_Engerineering ,
                                                         elias:Information_Technology ;
                                         cv:hasCourse elias:bSI_Certification ;
@@ -380,26 +389,26 @@ elias:bim_tech_lead_profile rdf:type owl:NamedIndividual ,
                                         bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills .
 
 
-###  http://kb.elias.eng.br/nid.ttl#EliasMPJunior_github
+###  http://kb.elias.eng.br/nid/elias.ttl#EliasMPJunior_github
 elias:EliasMPJunior_github rdf:type owl:NamedIndividual ,
                                     bdc_org:GithubAccount ;
                            foaf:homepage "https://github.com/EliasMPJunior"^^xsd:anyURI .
 
 
-###  http://kb.elias.eng.br/nid.ttl#EliasMagalhaes_linkedin
+###  http://kb.elias.eng.br/nid/elias.ttl#EliasMagalhaes_linkedin
 elias:EliasMagalhaes_linkedin rdf:type owl:NamedIndividual ,
                                        bdc_org:LinkedInAccount ;
                               foaf:homepage "https://www.linkedin.com/in/elias-magalhaes"^^xsd:anyURI .
 
 
-###  http://kb.elias.eng.br/nid.ttl#FELA
+###  http://kb.elias.eng.br/nid/elias.ttl#FELA
 elias:FELA rdf:type owl:NamedIndividual ,
                     schema:Group ;
            foaf:member elias:Elias ;
            schema:name "F.E.L.A." .
 
 
-###  http://kb.elias.eng.br/nid.ttl#InfoBIM
+###  http://kb.elias.eng.br/nid/elias.ttl#InfoBIM
 elias:InfoBIM rdf:type owl:NamedIndividual ,
                        foaf:Project ,
                        schema:SoftwareSourceCode ;
@@ -412,7 +421,7 @@ elias:InfoBIM rdf:type owl:NamedIndividual ,
                                "Um ambiente de execução modular para Automação de Engenharia que preenche a lacuna entre dados BIM estáticos e agentes de IA dinâmicos. O InfoBIM fornece um catálogo de ferramentas legível por máquina através de seu Protocolo de Descoberta, transformando scripts OpenBIM avulsos em uma linha de produção de capacidades reutilizáveis. Ele permite que LLMs orquestrem checagens lógicas automatizadas, regras nativas IDS e geração de relatórios descritivos diretamente de modelos IFC, atuando como o motor de capacidades para a automação BIM."@pt-br .
 
 
-###  http://kb.elias.eng.br/nid.ttl#eliasmagalhaesbr_gmail
+###  http://kb.elias.eng.br/nid/elias.ttl#eliasmagalhaesbr_gmail
 elias:eliasmagalhaesbr_gmail rdf:type owl:NamedIndividual ,
                                       foaf:Email ,
                                       foaf:OnlineAccount ;
@@ -437,7 +446,21 @@ elias:BIM_Skills rdf:type owl:NamedIndividual ,
                                             cv:skillLevel "Advanced" ] ,
                                         [ rdf:type cv:Skill ;
                                             cv:skillName "IfcOpenShell" ;
-                                            cv:skillLevel "Advanced" ] .
+                                            cv:skillLevel "Advanced" ] ,
+                                        [ rdf:type cv:Skill ;
+                                            cv:skillName "Compatibilização de Projetos"@pt-br ,
+                                                         "Design Coordination"@en ;
+                                            cv:skillLevel "Advanced" ] ,
+                                        [ rdf:type cv:Skill ;
+                                            cv:skillName "Integração de Projetos"@pt-br ,
+                                                         "Project Integration"@en ;
+                                            cv:skillLevel "Advanced" ] ,
+                                        [ rdf:type cv:Skill ;
+                                            cv:skillName "Revit" ;
+                                            cv:skillLevel "Intermediate" ] .
+
+
+
 
 elias:Automation_Skills rdf:type owl:NamedIndividual ,
                             bdc_role:SkillGroup ;
