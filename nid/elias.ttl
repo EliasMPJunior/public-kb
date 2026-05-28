@@ -212,14 +212,29 @@ elias:Elias rdf:type owl:NamedIndividual ,
             foaf:nickname "Sonecka" ;
             cv:hasTarget elias:bim_researcher_profile ,
                               elias:bim_coordinator_profile ,
-                              elias:bim_tech_lead_profile ;
-            foaf:pastProject elias:CDECerti ;
+                              elias:bim_tech_lead_profile ,
+                              elias:product_owner_sdd_profile ,
+                              elias:lead_it_engineer_productivity_profile ,
+                              elias:senior_data_architect_profile ,
+                              elias:it_software_specialist_profile ;
+            foaf:pastProject elias:CDECerti ,
+                              elias:Processo_Decisorio_Digital ,
+                              elias:Carta_Precatoria_Eletronica ;
             foaf:phone "+55 21 999-556-033" ;
             foaf:title "Eng."@en ,
                        "Engº"@pt-br ;
             schema:knowsAbout elias:IFC ,
                               elias:Python ,
-                              elias:SemanticWeb ;
+                              elias:SemanticWeb ,
+                              elias:AWS ,
+                              elias:Kafka ,
+                              elias:RabbitMQ ,
+                              elias:GraphQL ,
+                              elias:SHACL ,
+                              elias:SPARQL ,
+                              elias:Prefect ,
+                              elias:Oracle ,
+                              elias:ETL ;
             schema:owns bdc_org:Brasidata ;
             cv:hasNationality "Brasileiro"@pt-br, "Brazilian"@en .
 
@@ -330,9 +345,24 @@ elias:Work_Zigurat rdf:type owl:NamedIndividual ,
                                      "Professor responsible for interoperability (IFC) and information management in OpenBIM subjects."@en .
 
 
+elias:Work_TJRJ_Oracle_DBA rdf:type owl:NamedIndividual ,
+                                   cv:WorkHistory ;
+                          cv:employedIn bdc_org:TJRJ ;
+                          cv:startDate "2006-01-01" ;
+                          cv:endDate "2008-12-01" ;
+                          cv:jobTitle "DBA Oracle"@pt-br ,
+                                      "Oracle DBA"@en ;
+                          cv:jobDescription "Atuação como DBA Oracle no Tribunal de Justiça do Estado do Rio de Janeiro (TJRJ), com foco em administração de banco de dados, confiabilidade e disciplina operacional."@pt-br ,
+                                            "Worked as an Oracle DBA at the Court of Justice of Rio de Janeiro (TJRJ), focused on database administration, reliability, and operational discipline."@en .
+
+
 elias:Achievement_bSI_Assembly rdf:type owl:NamedIndividual ;
     schema:description "Participação ativa nas últimas 4 edições da buildingSMART Implementers Assembly, reuniões técnicas globais exclusivas para desenvolvedores de software discutirem a implementação de padrões openBIM e serviços IFC5."@pt-br ,
                        "Active participation in the last 4 buildingSMART Implementers Assemblies, exclusive global technical meetings for software vendors to discuss the implementation of openBIM standards and IFC5 services."@en .
+
+elias:Achievement_ERA_BIM_IFC5_Workshop rdf:type owl:NamedIndividual ;
+    schema:description "Palestra e workshop dedicados ao novo padrão openBIM IFC5 no congresso A ERA BIM, com foco em ecossistemas digitais, fluxos orientados a dados e interoperabilidade na indústria AECO. Evento realizado em São Paulo (Centro de Convenções Frei Caneca)."@pt-br ,
+                       "Presented insights on the new IFC5 openBIM standard in a dedicated workshop at the A ERA BIM Congress, focusing on digital ecosystems, data-driven workflows, and interoperability across the AECO industry. The event took place in São Paulo (Centro de Convenções Frei Caneca)."@en .
 
 elias:Achievement_bSI_Hackathon rdf:type owl:NamedIndividual ;
     schema:description "Participação no Hackathon da buildingSMART no Porto (2026), desenvolvendo um fluxo de trabalho automatizado que integra extração de requisitos em PDF via LLMs, ontologias Turtle e arquivos IFC para a geração de artefatos de verificação formal (IDS/IDCS) e relatórios automatizados de conformidade utilizando ferramentas como IfcOpenShell, SymPy e ifctester."@pt-br ,
@@ -354,8 +384,8 @@ elias:bim_coordinator_profile rdf:type owl:NamedIndividual ,
                                                         elias:Information_Technology ;
                                         cv:hasCourse elias:bSI_Certification ;
                                         cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat , elias:Work_Tecgraf , elias:Work_ReforceSul , elias:Work_InfraCidades , elias:Work_Concat , elias:Work_CERTI ;
-                                        bdc_role:hasAchievement elias:Achievement_bSI_Assembly , elias:Achievement_bSI_Hackathon , elias:Achievement_OilGas ;
-                                        bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills .
+                                        bdc_role:hasAchievement elias:Achievement_bSI_Assembly , elias:Achievement_ERA_BIM_IFC5_Workshop , elias:Achievement_bSI_Hackathon , elias:Achievement_OilGas ;
+                                        bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills , elias:Data_Cloud_Skills .
 
 
 ###  http://kb.elias.eng.br/nid/elias.ttl#EliasBIMResearcherProfile
@@ -370,8 +400,8 @@ elias:bim_researcher_profile rdf:type owl:NamedIndividual ,
                                                         elias:Information_Technology ;
                                         cv:hasCourse elias:bSI_Certification ;
                                         cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat , elias:Work_Tecgraf , elias:Work_ReforceSul , elias:Work_InfraCidades , elias:Work_Concat , elias:Work_CERTI ;
-                                        bdc_role:hasAchievement elias:Achievement_bSI_Assembly , elias:Achievement_bSI_Hackathon , elias:Achievement_OilGas ;
-                                        bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills .
+                                        bdc_role:hasAchievement elias:Achievement_bSI_Assembly , elias:Achievement_ERA_BIM_IFC5_Workshop , elias:Achievement_bSI_Hackathon , elias:Achievement_OilGas ;
+                                        bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills , elias:Data_Cloud_Skills .
 
 
 ###  http://kb.elias.eng.br/nid/elias.ttl#EliasBIMTechLeadProfile
@@ -386,7 +416,54 @@ elias:bim_tech_lead_profile rdf:type owl:NamedIndividual ,
                                                         elias:Information_Technology ;
                                         cv:hasCourse elias:bSI_Certification ;
                                         cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat , elias:Work_Tecgraf , elias:Work_ReforceSul , elias:Work_InfraCidades , elias:Work_Concat , elias:Work_CERTI ;
-                                        bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills .
+                                        bdc_role:hasAchievement elias:Achievement_bSI_Assembly , elias:Achievement_ERA_BIM_IFC5_Workshop , elias:Achievement_bSI_Hackathon , elias:Achievement_OilGas ;
+                                        bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills , elias:Data_Cloud_Skills .
+
+
+elias:product_owner_sdd_profile rdf:type owl:NamedIndividual ,
+                                        cv:CV ;
+                               cv:targetJobTitle "Product Owner Sênior"@pt-br ,
+                                                 "Senior Product Owner"@en ;
+                               cv:targetJobDescription "Perfil de Product Owner Sênior com foco em Spec-Driven Development (SDD), integração de ferramentas de engenharia e governança de automações com evidências e auditabilidade. Atuação entre estratégia, arquitetura e execução para transformar requisitos em especificações verificáveis e processos reprodutíveis."@pt-br ,
+                                                       "Senior Product Owner profile focused on Spec-Driven Development (SDD), engineering tooling integration, and governance-first automation with evidence and auditability. Operates across strategy, architecture, and execution to turn requirements into verifiable specifications and repeatable workflows."@en ;
+                               cv:hasEducation elias:Civil_Engerineering ,
+                                               elias:Information_Technology ;
+                               cv:hasCourse elias:bSI_Certification ;
+                               cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat , elias:Work_CERTI , elias:Work_Concat , elias:Work_TJRJ_Oracle_DBA ;
+                               bdc_role:hasSkillGroup elias:Automation_Skills , elias:Data_Cloud_Skills .
+
+
+elias:lead_it_engineer_productivity_profile rdf:type owl:NamedIndividual ,
+                                                    cv:CV ;
+                                           cv:targetJobTitle "Lead IT Engineer - Productivity Systems"@en ;
+                                           cv:targetJobDescription "Lead engineer profile focused on solving meta-problems: building automation platforms, workflow orchestration, developer tooling governance, and AI-assisted workflows with controls. Emphasis on integration, asynchronous processing, ETL, and audit-ready evidence generation."@en ;
+                                           cv:hasEducation elias:Civil_Engerineering ,
+                                                           elias:Information_Technology ;
+                                           cv:hasCourse elias:bSI_Certification ;
+                                           cv:hasWorkHistory elias:Work_Brasidata , elias:Work_CERTI , elias:Work_Concat , elias:Work_TJRJ_Oracle_DBA ;
+                                           bdc_role:hasSkillGroup elias:Automation_Skills , elias:Data_Cloud_Skills .
+
+
+elias:senior_data_architect_profile rdf:type owl:NamedIndividual ,
+                                            cv:CV ;
+                                   cv:targetJobTitle "Senior Data Architect"@en ;
+                                   cv:targetJobDescription "Senior data architect profile for modern data platforms and modernization programs. Focus on governance, interoperability, ETL orchestration (Prefect), and validation/transformations (SHACL/SPARQL), bridging hands-on implementation and architectural leadership. Background includes AWS deployments and deep RDBMS operations (Oracle DBA)."@en ;
+                                   cv:hasEducation elias:Civil_Engerineering ,
+                                                   elias:Information_Technology ;
+                                   cv:hasCourse elias:bSI_Certification ;
+                                   cv:hasWorkHistory elias:Work_Brasidata , elias:Work_CERTI , elias:Work_Concat , elias:Work_TJRJ_Oracle_DBA ;
+                                   bdc_role:hasSkillGroup elias:Automation_Skills , elias:Data_Cloud_Skills .
+
+
+elias:it_software_specialist_profile rdf:type owl:NamedIndividual ,
+                                             cv:CV ;
+                                    cv:targetJobTitle "IT Software Specialist"@en ;
+                                    cv:targetJobDescription "Software specialist profile focused on integration-heavy systems, data workflows, and maintainable production services. Emphasis on requirements-to-specs, testing/debugging, interoperability, technical documentation, and cloud deployments. Hands-on with AWS, messaging systems, ETL orchestration, and formal validation/transformations (SHACL/SPARQL)."@en ;
+                                    cv:hasEducation elias:Civil_Engerineering ,
+                                                    elias:Information_Technology ;
+                                    cv:hasCourse elias:bSI_Certification ;
+                                    cv:hasWorkHistory elias:Work_Brasidata , elias:Work_CERTI , elias:Work_Concat , elias:Work_TJRJ_Oracle_DBA ;
+                                    bdc_role:hasSkillGroup elias:Automation_Skills , elias:Data_Cloud_Skills .
 
 
 ###  http://kb.elias.eng.br/nid/elias.ttl#EliasMPJunior_github
@@ -419,6 +496,24 @@ elias:InfoBIM rdf:type owl:NamedIndividual ,
               foaf:homepage "https://infobim.org"^^xsd:anyURI ;
               dcterms:abstract "A modular runtime environment for Engineering Automation that bridges the gap between static BIM data and dynamic AI agents. InfoBIM provides a machine-readable catalog of tools via its Discovery Protocol, turning ad-hoc OpenBIM scripts into a repeatable production line of capabilities. It enables LLMs to orchestrate automated logic checking, IDS-native rules, and descriptive report generation directly from IFC models, acting as the capability engine for BIM automation."@en ,
                                "Um ambiente de execução modular para Automação de Engenharia que preenche a lacuna entre dados BIM estáticos e agentes de IA dinâmicos. O InfoBIM fornece um catálogo de ferramentas legível por máquina através de seu Protocolo de Descoberta, transformando scripts OpenBIM avulsos em uma linha de produção de capacidades reutilizáveis. Ele permite que LLMs orquestrem checagens lógicas automatizadas, regras nativas IDS e geração de relatórios descritivos diretamente de modelos IFC, atuando como o motor de capacidades para a automação BIM."@pt-br .
+
+elias:Processo_Decisorio_Digital rdf:type owl:NamedIndividual ,
+                                         foaf:Project ,
+                                         schema:SoftwareApplication ;
+                                foaf:maker elias:Elias ;
+                                schema:name "Processo Decisório Digital (PD)"@pt-br ;
+                                schema:startDate "2017"^^xsd:gYear ;
+                                schema:endDate "2018"^^xsd:gYear ;
+                                foaf:homepage "https://www.youtube.com/watch?v=n-Mp8IAVpDc&t=232s"^^xsd:anyURI ;
+                                dcterms:abstract "Sistema/esteira para decisão de investimentos, centralizando notas técnicas multiárea, trilha de aprovações (comitês) e decisão final da diretoria."@pt-br .
+
+elias:Carta_Precatoria_Eletronica rdf:type owl:NamedIndividual ,
+                                          foaf:Project ,
+                                          schema:SoftwareApplication ;
+                                 foaf:maker elias:Elias ;
+                                 schema:name "Carta Precatória Eletrônica"@pt-br ;
+                                 schema:startDate "2010"^^xsd:gYear ;
+                                 dcterms:abstract "Produto de tramitação digital para cartas precatórias (PJRJ), cobrindo distribuição, execução no juízo deprecado e devolução, com regras de assinatura digital e conformidade normativa."@pt-br .
 
 
 ###  http://kb.elias.eng.br/nid/elias.ttl#eliasmagalhaesbr_gmail
@@ -501,3 +596,51 @@ elias:Automation_Skills rdf:type owl:NamedIndividual ,
                                         [ rdf:type cv:Skill ;
                                             cv:skillName "ETL" ;
                                             cv:skillLevel "Advanced" ] .
+
+
+elias:Data_Cloud_Skills rdf:type owl:NamedIndividual ,
+                                 bdc_role:SkillGroup ;
+                        schema:name "Dados & Nuvem"@pt-br ,
+                                     "Data & Cloud"@en ;
+                        cv:hasSkill [ rdf:type cv:Skill ;
+                                       cv:skillName "AWS" ;
+                                       cv:skillLevel "Intermediate" ] ,
+                                    [ rdf:type cv:Skill ;
+                                       cv:skillName "AWS S3" ;
+                                       cv:skillLevel "Intermediate" ] ,
+                                    [ rdf:type cv:Skill ;
+                                       cv:skillName "AWS Lambda" ;
+                                       cv:skillLevel "Intermediate" ] ,
+                                    [ rdf:type cv:Skill ;
+                                       cv:skillName "AWS EC2" ;
+                                       cv:skillLevel "Intermediate" ] ,
+                                    [ rdf:type cv:Skill ;
+                                       cv:skillName "AWS API Gateway" ;
+                                       cv:skillLevel "Intermediate" ] ,
+                                    [ rdf:type cv:Skill ;
+                                       cv:skillName "AWS SQS" ;
+                                       cv:skillLevel "Intermediate" ] ,
+                                    [ rdf:type cv:Skill ;
+                                       cv:skillName "Apache Kafka" ;
+                                       cv:skillLevel "Intermediate" ] ,
+                                    [ rdf:type cv:Skill ;
+                                       cv:skillName "RabbitMQ" ;
+                                       cv:skillLevel "Intermediate" ] ,
+                                    [ rdf:type cv:Skill ;
+                                       cv:skillName "GraphQL" ;
+                                       cv:skillLevel "Intermediate" ] ,
+                                    [ rdf:type cv:Skill ;
+                                       cv:skillName "Prefect" ;
+                                       cv:skillLevel "Advanced" ] ,
+                                    [ rdf:type cv:Skill ;
+                                       cv:skillName "SHACL" ;
+                                       cv:skillLevel "Advanced" ] ,
+                                    [ rdf:type cv:Skill ;
+                                       cv:skillName "SPARQL" ;
+                                       cv:skillLevel "Advanced" ] ,
+                                    [ rdf:type cv:Skill ;
+                                       cv:skillName "SQL" ;
+                                       cv:skillLevel "Advanced" ] ,
+                                    [ rdf:type cv:Skill ;
+                                       cv:skillName "Oracle" ;
+                                       cv:skillLevel "Advanced" ] .
