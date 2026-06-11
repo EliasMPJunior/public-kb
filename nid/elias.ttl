@@ -8,11 +8,10 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix elias: <http://kb.elias.eng.br/nid/elias.ttl#> .
 @prefix schema: <https://schema.org/> .
-@prefix bdc_org: <http://datacenter.app.br/nid/social/organization.ttl#> .
+@prefix bdc_org: <http://brasidatacenter.com/domain/social/nid/organization.ttl#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix bdc_role: <http://datacenter.app.br/nid/social/role.ttl#> .
+@prefix bdc_role: <http://brasidatacenter.com/domain/social/nid/role.ttl#> .
 @base <http://kb.elias.eng.br/nid/elias.ttl#> .
 
 <http://kb.elias.eng.br/nid/elias.ttl> rdf:type owl:Ontology .
@@ -190,13 +189,15 @@ bdc_org:Zigurat rdf:type owl:NamedIndividual .
 
 
 ###  http://kb.elias.eng.br/nid/elias.ttl#Elias
-elias:Elias rdf:type owl:NamedIndividual ,
+:Elias rdf:type owl:NamedIndividual ,
                      foaf:Person ,
                      cv:Person;
             org:hasMembership bdc_org:Brasidata ,
                               bdc_org:Zigurat ;
-            foaf:currentProject elias:InfoBIM ;
-            foaf:made elias:InfoBIM ;
+            foaf:currentProject :InfoBIM ,
+                              :OntoBDC ;
+            foaf:made :InfoBIM ,
+                      :OntoBDC ;
             foaf:birthday "03-29" ;
             foaf:familyName "Magalhães"@en ,
                             "Magalhães da Paixão"@pt-br ;
@@ -210,36 +211,36 @@ elias:Elias rdf:type owl:NamedIndividual ,
             foaf:name "Elias Magalhães"@en ,
                       "Elias Magalhães da Paixão Junior"@pt-br ;
             foaf:nickname "Sonecka" ;
-            cv:hasTarget elias:bim_researcher_profile ,
-                              elias:bim_coordinator_profile ,
-                              elias:bim_tech_lead_profile ,
-                              elias:product_owner_sdd_profile ,
-                              elias:lead_it_engineer_productivity_profile ,
-                              elias:senior_data_architect_profile ,
-                              elias:it_software_specialist_profile ;
-            foaf:pastProject elias:CDECerti ,
-                              elias:Processo_Decisorio_Digital ,
-                              elias:Carta_Precatoria_Eletronica ;
+            cv:hasTarget :bim_researcher_profile ,
+                              :bim_coordinator_profile ,
+                              :bim_tech_lead_profile ,
+                              :product_owner_sdd_profile ,
+                              :lead_it_engineer_productivity_profile ,
+                              :senior_data_architect_profile ,
+                              :it_software_specialist_profile ;
+            foaf:pastProject :CDECerti ,
+                              :Processo_Decisorio_Digital ,
+                              :Carta_Precatoria_Eletronica ;
             foaf:phone "+55 21 999-556-033" ;
             foaf:title "Eng."@en ,
                        "Engº"@pt-br ;
-            schema:knowsAbout elias:IFC ,
-                              elias:Python ,
-                              elias:SemanticWeb ,
-                              elias:AWS ,
-                              elias:Kafka ,
-                              elias:RabbitMQ ,
-                              elias:GraphQL ,
-                              elias:SHACL ,
-                              elias:SPARQL ,
-                              elias:Prefect ,
-                              elias:Oracle ,
-                              elias:ETL ;
+            schema:knowsAbout :IFC ,
+                              :Python ,
+                              :SemanticWeb ,
+                              :AWS ,
+                              :Kafka ,
+                              :RabbitMQ ,
+                              :GraphQL ,
+                              :SHACL ,
+                              :SPARQL ,
+                              :Prefect ,
+                              :Oracle ,
+                              :ETL ;
             schema:owns bdc_org:Brasidata ;
             cv:hasNationality "Brasileiro"@pt-br, "Brazilian"@en .
 
 
-elias:Civil_Engerineering rdf:type owl:NamedIndividual ,
+:Civil_Engerineering rdf:type owl:NamedIndividual ,
                      cv:Education ;
                      cv:studiedIn bdc_org:PUC_Rio ;
                     schema:name "Bacharelado em Engenharia Civil"@pt-br ,
@@ -251,7 +252,7 @@ elias:Civil_Engerineering rdf:type owl:NamedIndividual ,
                     # cv:eduGradDate cv:degreeType cv:eduMajor cv:eduMinor cv:eduDescription
 
 
-elias:Information_Technology rdf:type owl:NamedIndividual ,
+:Information_Technology rdf:type owl:NamedIndividual ,
                      cv:Education ;
                      cv:studiedIn bdc_org:Uniabeu ;
                     schema:name "Bacharelado em Tecnologia de Informação"@pt-br ,
@@ -260,7 +261,7 @@ elias:Information_Technology rdf:type owl:NamedIndividual ,
                      cv:Locality "Brasil"@pt-br ,
                               "Brazil"@en .
 
-elias:bSI_Certification rdf:type owl:NamedIndividual ,
+:bSI_Certification rdf:type owl:NamedIndividual ,
                      cv:Course ;
                      cv:courseTitle "Certificação Profissional buildingSMART - Nível Fundamentos"@pt-br ,
                               "buildingSMART Professional Certification - Foundation Level"@en ;
@@ -270,7 +271,7 @@ elias:bSI_Certification rdf:type owl:NamedIndividual ,
                      cv:courseURL "https://education.buildingsmart.org/foundation/"^^xsd:anyURI .
 
 
-elias:Work_CERTI rdf:type owl:NamedIndividual ,
+:Work_CERTI rdf:type owl:NamedIndividual ,
                               cv:WorkHistory ;
                      cv:employedIn bdc_org:CERTI ;
                      cv:startDate "2023-01-01" ;
@@ -280,7 +281,7 @@ elias:Work_CERTI rdf:type owl:NamedIndividual ,
                      cv:jobDescription "Desenvolveu um Ambiente Comum de Dados (CDE) em conformidade com a ISO 19650 para projetos de Óleo e Gás. Projetou fluxos de auditoria de modelos para redes de tubulação usando IFC, divididos em estrutura de arquivos, regras duráveis e regras específicas do projeto. Criou e validou IDS para verificação de regras e conformidade (LOIN, BEP, normas NBR). Aplicou Event Sourcing com TDD para avaliação estruturada de regras e rastreamento histórico. Integrou pipelines de assinatura digital para trilhas de auditoria e aprovações coordenadas da equipe."@pt-br ,
                                        "Developed a Common Data Environment (CDE) compliant with ISO 19650 for Oil & Gas projects. Designed model audit workflows for piping networks using IFC, split into file structure, durable rules, and project-specific rules. Created and validated IDS for rule checking and compliance (LOIN, BEP, NBR standards). Applied Event Sourcing with TDD for structured rule evaluation and historical tracking. Integrated digital signature pipelines for audit trails and coordinated team approvals."@en .
 
-elias:Work_Concat rdf:type owl:NamedIndividual ,
+:Work_Concat rdf:type owl:NamedIndividual ,
                               cv:WorkHistory ;
                      cv:employedIn bdc_org:Concat ;
                      cv:startDate "2019-01-01" ;
@@ -290,7 +291,7 @@ elias:Work_Concat rdf:type owl:NamedIndividual ,
                      cv:jobDescription "Desenvolveu uma ferramenta inteligente de orçamento para sistemas hidráulicos/elétricos de piscinas com visualização GLTF e exportação IFC. Criou APIs RESTful e microsserviços para o setor AEC e automação industrial. Construiu uma ferramenta automatizada de verificação de conformidade com XML MVDs, integração com Google Sheets e validação baseada em API. Criou scripts usando IfcOpenShell para converter IFC em GLTF e B-Rep para displays de marketing e instruções de montagem."@pt-br ,
                                        "Developed a smart budgeting tool for hydraulic/electric pool systems with GLTF visualization and IFC export. Created RESTful APIs and microservices for the AEC and industrial automation sector. Built automated compliance checking tool with XML MVDs, Google Sheets integration, and API-based validation. Created scripts using IfcOpenShell to convert IFC into GLTF and B-Rep for marketing displays and assembly instructions."@en .
 
-elias:Work_InfraCidades rdf:type owl:NamedIndividual ,
+:Work_InfraCidades rdf:type owl:NamedIndividual ,
                               cv:WorkHistory ;
                      cv:employedIn bdc_org:InfraCidades ;
                      cv:startDate "2022-01-01" ;
@@ -301,7 +302,7 @@ elias:Work_InfraCidades rdf:type owl:NamedIndividual ,
                                        "Delivered hands-on BIM training to public sector professionals across Brazil. Structured pilot projects using Revit, BlenderBIM, Dynamo, IfcOpenShell, and VS Code. Taught parametric modeling, audit-ready data structuring, and automation scripts. Enabled teams to implement CDE concepts and IFC export processes aligned with open standards."@en .
 
 
-elias:Work_ReforceSul rdf:type owl:NamedIndividual ,
+:Work_ReforceSul rdf:type owl:NamedIndividual ,
                               cv:WorkHistory ;
                      cv:employedIn bdc_org:ReforceSul ;
                      cv:startDate "2015-01-01" ;
@@ -312,7 +313,7 @@ elias:Work_ReforceSul rdf:type owl:NamedIndividual ,
                                        "Automated budgeting and simulation models for marina reinforcement works. Designed execution schedule aligned with tidal windows using Python scripting and Excel automation."@en .
 
 
-elias:Work_Tecgraf rdf:type owl:NamedIndividual ,
+:Work_Tecgraf rdf:type owl:NamedIndividual ,
                              cv:WorkHistory ;
                     cv:employedIn bdc_org:PUC_Rio ;
                     cv:startDate "2017-01-01" ;
@@ -323,7 +324,7 @@ elias:Work_Tecgraf rdf:type owl:NamedIndividual ,
                                       "Investigated BIM application to historic building documentation. Built custom IFC-to-JSON parsers for spatial indexing and semantic labeling. Integrated MongoDB with non-structured heritage data for visual exploration."@en .
 
 
-elias:Work_Brasidata rdf:type owl:NamedIndividual ,
+:Work_Brasidata rdf:type owl:NamedIndividual ,
                              cv:WorkHistory ;
                     cv:employedIn bdc_org:Brasidata ;
                     cv:startDate "2020-01-01" ;
@@ -334,7 +335,7 @@ elias:Work_Brasidata rdf:type owl:NamedIndividual ,
                                       "Team leadership in developing Semantic Web solutions and engineering automation for BIM project management."@en .
 
 
-elias:Work_Zigurat rdf:type owl:NamedIndividual ,
+:Work_Zigurat rdf:type owl:NamedIndividual ,
                             cv:WorkHistory ;
                    cv:employedIn bdc_org:Zigurat ;
                    cv:startDate "2026-03-01" ;
@@ -345,7 +346,7 @@ elias:Work_Zigurat rdf:type owl:NamedIndividual ,
                                      "Professor responsible for interoperability (IFC) and information management in OpenBIM subjects."@en .
 
 
-elias:Work_TJRJ_Oracle_DBA rdf:type owl:NamedIndividual ,
+:Work_TJRJ_Oracle_DBA rdf:type owl:NamedIndividual ,
                                    cv:WorkHistory ;
                           cv:employedIn bdc_org:TJRJ ;
                           cv:startDate "2006-01-01" ;
@@ -356,140 +357,140 @@ elias:Work_TJRJ_Oracle_DBA rdf:type owl:NamedIndividual ,
                                             "Worked as an Oracle DBA at the Court of Justice of Rio de Janeiro (TJRJ), focused on database administration, reliability, and operational discipline."@en .
 
 
-elias:Achievement_bSI_Assembly rdf:type owl:NamedIndividual ;
+:Achievement_bSI_Assembly rdf:type owl:NamedIndividual ;
     schema:description "Participação ativa nas últimas 4 edições da buildingSMART Implementers Assembly, reuniões técnicas globais exclusivas para desenvolvedores de software discutirem a implementação de padrões openBIM e serviços IFC5."@pt-br ,
                        "Active participation in the last 4 buildingSMART Implementers Assemblies, exclusive global technical meetings for software vendors to discuss the implementation of openBIM standards and IFC5 services."@en .
 
-elias:Achievement_ERA_BIM_IFC5_Workshop rdf:type owl:NamedIndividual ;
+:Achievement_ERA_BIM_IFC5_Workshop rdf:type owl:NamedIndividual ;
     schema:description "Palestra e workshop dedicados ao novo padrão openBIM IFC5 no congresso A ERA BIM, com foco em ecossistemas digitais, fluxos orientados a dados e interoperabilidade na indústria AECO. Evento realizado em São Paulo (Centro de Convenções Frei Caneca)."@pt-br ,
                        "Presented insights on the new IFC5 openBIM standard in a dedicated workshop at the A ERA BIM Congress, focusing on digital ecosystems, data-driven workflows, and interoperability across the AECO industry. The event took place in São Paulo (Centro de Convenções Frei Caneca)."@en .
 
-elias:Achievement_bSI_Hackathon rdf:type owl:NamedIndividual ;
+:Achievement_bSI_Hackathon rdf:type owl:NamedIndividual ;
     schema:description "Participação no Hackathon da buildingSMART no Porto (2026), desenvolvendo um fluxo de trabalho automatizado que integra extração de requisitos em PDF via LLMs, ontologias Turtle e arquivos IFC para a geração de artefatos de verificação formal (IDS/IDCS) e relatórios automatizados de conformidade utilizando ferramentas como IfcOpenShell, SymPy e ifctester."@pt-br ,
                        "Participation in the buildingSMART Hackathon in Porto (2026), developing an automated workflow that integrates PDF requirement extraction via LLMs, Turtle ontologies, and IFC models to generate formal verification artifacts (IDS/IDCS) and automated compliance reports using tools such as IfcOpenShell, SymPy, and ifctester."@en .
 
-elias:Achievement_OilGas rdf:type owl:NamedIndividual ;
+:Achievement_OilGas rdf:type owl:NamedIndividual ;
     schema:description "Experiência avançada em modelagem e coordenação de projetos de instalações complexas focadas no setor de Óleo & Gás."@pt-br ,
                        "Advanced experience in modeling and coordinating complex facility projects focused on the Oil & Gas sector."@en .
 
 ###  http://kb.elias.eng.br/nid/elias.ttl#EliasBIMCoordinatorProfile
-elias:bim_coordinator_profile rdf:type owl:NamedIndividual ,
+:bim_coordinator_profile rdf:type owl:NamedIndividual ,
                                           bdc_role:BIMCoordinatorProfile ,
                                           cv:CV ;
                                         cv:targetJobTitle "Coordenador BIM"@pt-br ,
                                                           "BIM Coordinator"@en ;
                                         cv:targetJobDescription "Especialista em coordenação de projetos BIM, focado na integração de disciplinas, detecção de conflitos (Clash Detection) e garantia de qualidade da informação (QA/QC). Experiência na gestão de Ambientes Comuns de Dados (CDE) e na condução de fluxos de trabalho OpenBIM para garantir a eficiência e a conformidade com as normas do setor."@pt-br ,
                                                                 "Specialist in BIM project coordination, focused on multidisciplinary integration, clash detection, and information quality assurance (QA/QC). Experienced in managing Common Data Environments (CDE) and driving OpenBIM workflows to ensure efficiency and compliance with industry standards."@en ;
-                                        cv:hasEducation elias:Civil_Engerineering ,
-                                                        elias:Information_Technology ;
-                                        cv:hasCourse elias:bSI_Certification ;
-                                        cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat , elias:Work_Tecgraf , elias:Work_ReforceSul , elias:Work_InfraCidades , elias:Work_Concat , elias:Work_CERTI ;
-                                        bdc_role:hasAchievement elias:Achievement_bSI_Assembly , elias:Achievement_ERA_BIM_IFC5_Workshop , elias:Achievement_bSI_Hackathon , elias:Achievement_OilGas ;
-                                        bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills , elias:Data_Cloud_Skills .
+                                        cv:hasEducation :Civil_Engerineering ,
+                                                        :Information_Technology ;
+                                        cv:hasCourse :bSI_Certification ;
+                                        cv:hasWorkHistory :Work_Brasidata , :Work_Zigurat , :Work_Tecgraf , :Work_ReforceSul , :Work_InfraCidades , :Work_Concat , :Work_CERTI ;
+                                        bdc_role:hasAchievement :Achievement_bSI_Assembly , :Achievement_ERA_BIM_IFC5_Workshop , :Achievement_bSI_Hackathon , :Achievement_OilGas ;
+                                        bdc_role:hasSkillGroup :BIM_Skills , :Automation_Skills , :Data_Cloud_Skills .
 
 
 ###  http://kb.elias.eng.br/nid/elias.ttl#EliasBIMResearcherProfile
-elias:bim_researcher_profile rdf:type owl:NamedIndividual ,
+:bim_researcher_profile rdf:type owl:NamedIndividual ,
                                          bdc_role:BIMResearcherProfile ,
                                         cv:CV ;
                                          cv:targetJobTitle "Engenheiro Pesquisador BIM"@pt-br ,
                                          "BIM Research Engineer"@en ;
             cv:targetJobDescription "Engenheiro pesquisador em BIM que trabalha o BIM como infraestrutura de dados, e não com desenhos ou maquetes. Especialista em interoperabilidade, IFC, ontologias, auditoria de modelos, automação e desenvolvimento de sistemas para gestão da informação na construção civil. Uno pesquisa aplicada, engenharia e desenvolvimento de software para criar soluções robustas de governança, integração e escalabilidade de dados no ecossistema AECOO."@pt-br ,
                              "BIM research engineer who treats BIM as data infrastructure, not as drawings or useless 3D mockups. Specialist in interoperability, IFC, ontologies, model auditing, automation, and the development of information management systems for the construction industry. I combine applied research, engineering, and software development to create robust solutions for data governance, integration, and scalability across the AECO ecosystem."@en ;
-                                        cv:hasEducation elias:Civil_Engerineering ,
-                                                        elias:Information_Technology ;
-                                        cv:hasCourse elias:bSI_Certification ;
-                                        cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat , elias:Work_Tecgraf , elias:Work_ReforceSul , elias:Work_InfraCidades , elias:Work_Concat , elias:Work_CERTI ;
-                                        bdc_role:hasAchievement elias:Achievement_bSI_Assembly , elias:Achievement_ERA_BIM_IFC5_Workshop , elias:Achievement_bSI_Hackathon , elias:Achievement_OilGas ;
-                                        bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills , elias:Data_Cloud_Skills .
+                                        cv:hasEducation :Civil_Engerineering ,
+                                                        :Information_Technology ;
+                                        cv:hasCourse :bSI_Certification ;
+                                        cv:hasWorkHistory :Work_Brasidata , :Work_Zigurat , :Work_Tecgraf , :Work_ReforceSul , :Work_InfraCidades , :Work_Concat , :Work_CERTI ;
+                                        bdc_role:hasAchievement :Achievement_bSI_Assembly , :Achievement_ERA_BIM_IFC5_Workshop , :Achievement_bSI_Hackathon , :Achievement_OilGas ;
+                                        bdc_role:hasSkillGroup :BIM_Skills , :Automation_Skills , :Data_Cloud_Skills .
 
 
 ###  http://kb.elias.eng.br/nid/elias.ttl#EliasBIMTechLeadProfile
-elias:bim_tech_lead_profile rdf:type owl:NamedIndividual ,
+:bim_tech_lead_profile rdf:type owl:NamedIndividual ,
                                        bdc_role:BIMTechLeadProfile ,
                                        cv:CV ;
                                         cv:targetJobTitle "Líder Técnico BIM"@pt-br ,
                                                           "BIM Tech Lead"@en ;
                                         cv:targetJobDescription "Líder técnico especializado no desenvolvimento e arquitetura de soluções BIM, Web Semântica e automação de engenharia. Focado na criação de ferramentas, APIs e integrações para escalabilidade de dados AECO, liderando equipes de desenvolvimento para transformar requisitos complexos em infraestrutura de dados eficiente."@pt-br ,
                                                                 "Technical leader specialized in the development and architecture of BIM solutions, Semantic Web, and engineering automation. Focused on creating tools, APIs, and integrations for AECO data scalability, leading development teams to transform complex requirements into efficient data infrastructure."@en ;
-                                        cv:hasEducation elias:Civil_Engerineering ,
-                                                        elias:Information_Technology ;
-                                        cv:hasCourse elias:bSI_Certification ;
-                                        cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat , elias:Work_Tecgraf , elias:Work_ReforceSul , elias:Work_InfraCidades , elias:Work_Concat , elias:Work_CERTI ;
-                                        bdc_role:hasAchievement elias:Achievement_bSI_Assembly , elias:Achievement_ERA_BIM_IFC5_Workshop , elias:Achievement_bSI_Hackathon , elias:Achievement_OilGas ;
-                                        bdc_role:hasSkillGroup elias:BIM_Skills , elias:Automation_Skills , elias:Data_Cloud_Skills .
+                                        cv:hasEducation :Civil_Engerineering ,
+                                                        :Information_Technology ;
+                                        cv:hasCourse :bSI_Certification ;
+                                        cv:hasWorkHistory :Work_Brasidata , :Work_Zigurat , :Work_Tecgraf , :Work_ReforceSul , :Work_InfraCidades , :Work_Concat , :Work_CERTI ;
+                                        bdc_role:hasAchievement :Achievement_bSI_Assembly , :Achievement_ERA_BIM_IFC5_Workshop , :Achievement_bSI_Hackathon , :Achievement_OilGas ;
+                                        bdc_role:hasSkillGroup :BIM_Skills , :Automation_Skills , :Data_Cloud_Skills .
 
 
-elias:product_owner_sdd_profile rdf:type owl:NamedIndividual ,
+:product_owner_sdd_profile rdf:type owl:NamedIndividual ,
                                         cv:CV ;
                                cv:targetJobTitle "Product Owner Sênior"@pt-br ,
                                                  "Senior Product Owner"@en ;
                                cv:targetJobDescription "Perfil de Product Owner Sênior com foco em Spec-Driven Development (SDD), integração de ferramentas de engenharia e governança de automações com evidências e auditabilidade. Atuação entre estratégia, arquitetura e execução para transformar requisitos em especificações verificáveis e processos reprodutíveis."@pt-br ,
                                                        "Senior Product Owner profile focused on Spec-Driven Development (SDD), engineering tooling integration, and governance-first automation with evidence and auditability. Operates across strategy, architecture, and execution to turn requirements into verifiable specifications and repeatable workflows."@en ;
-                               cv:hasEducation elias:Civil_Engerineering ,
-                                               elias:Information_Technology ;
-                               cv:hasCourse elias:bSI_Certification ;
-                               cv:hasWorkHistory elias:Work_Brasidata , elias:Work_Zigurat , elias:Work_CERTI , elias:Work_Concat , elias:Work_TJRJ_Oracle_DBA ;
-                               bdc_role:hasSkillGroup elias:Automation_Skills , elias:Data_Cloud_Skills .
+                               cv:hasEducation :Civil_Engerineering ,
+                                               :Information_Technology ;
+                               cv:hasCourse :bSI_Certification ;
+                               cv:hasWorkHistory :Work_Brasidata , :Work_Zigurat , :Work_CERTI , :Work_Concat , :Work_TJRJ_Oracle_DBA ;
+                               bdc_role:hasSkillGroup :Automation_Skills , :Data_Cloud_Skills .
 
 
-elias:lead_it_engineer_productivity_profile rdf:type owl:NamedIndividual ,
+:lead_it_engineer_productivity_profile rdf:type owl:NamedIndividual ,
                                                     cv:CV ;
                                            cv:targetJobTitle "Lead IT Engineer - Productivity Systems"@en ;
                                            cv:targetJobDescription "Lead engineer profile focused on solving meta-problems: building automation platforms, workflow orchestration, developer tooling governance, and AI-assisted workflows with controls. Emphasis on integration, asynchronous processing, ETL, and audit-ready evidence generation."@en ;
-                                           cv:hasEducation elias:Civil_Engerineering ,
-                                                           elias:Information_Technology ;
-                                           cv:hasCourse elias:bSI_Certification ;
-                                           cv:hasWorkHistory elias:Work_Brasidata , elias:Work_CERTI , elias:Work_Concat , elias:Work_TJRJ_Oracle_DBA ;
-                                           bdc_role:hasSkillGroup elias:Automation_Skills , elias:Data_Cloud_Skills .
+                                           cv:hasEducation :Civil_Engerineering ,
+                                                           :Information_Technology ;
+                                           cv:hasCourse :bSI_Certification ;
+                                           cv:hasWorkHistory :Work_Brasidata , :Work_CERTI , :Work_Concat , :Work_TJRJ_Oracle_DBA ;
+                                           bdc_role:hasSkillGroup :Automation_Skills , :Data_Cloud_Skills .
 
 
-elias:senior_data_architect_profile rdf:type owl:NamedIndividual ,
+:senior_data_architect_profile rdf:type owl:NamedIndividual ,
                                             cv:CV ;
                                    cv:targetJobTitle "Senior Data Architect"@en ;
                                    cv:targetJobDescription "Senior data architect profile for modern data platforms and modernization programs. Focus on governance, interoperability, ETL orchestration (Prefect), and validation/transformations (SHACL/SPARQL), bridging hands-on implementation and architectural leadership. Background includes AWS deployments and deep RDBMS operations (Oracle DBA)."@en ;
-                                   cv:hasEducation elias:Civil_Engerineering ,
-                                                   elias:Information_Technology ;
-                                   cv:hasCourse elias:bSI_Certification ;
-                                   cv:hasWorkHistory elias:Work_Brasidata , elias:Work_CERTI , elias:Work_Concat , elias:Work_TJRJ_Oracle_DBA ;
-                                   bdc_role:hasSkillGroup elias:Automation_Skills , elias:Data_Cloud_Skills .
+                                   cv:hasEducation :Civil_Engerineering ,
+                                                   :Information_Technology ;
+                                   cv:hasCourse :bSI_Certification ;
+                                   cv:hasWorkHistory :Work_Brasidata , :Work_CERTI , :Work_Concat , :Work_Tecgraf , :Work_TJRJ_Oracle_DBA ;
+                                   bdc_role:hasSkillGroup :Automation_Skills , :Data_Cloud_Skills .
 
 
-elias:it_software_specialist_profile rdf:type owl:NamedIndividual ,
+:it_software_specialist_profile rdf:type owl:NamedIndividual ,
                                              cv:CV ;
                                     cv:targetJobTitle "IT Software Specialist"@en ;
                                     cv:targetJobDescription "Software specialist profile focused on integration-heavy systems, data workflows, and maintainable production services. Emphasis on requirements-to-specs, testing/debugging, interoperability, technical documentation, and cloud deployments. Hands-on with AWS, messaging systems, ETL orchestration, and formal validation/transformations (SHACL/SPARQL)."@en ;
-                                    cv:hasEducation elias:Civil_Engerineering ,
-                                                    elias:Information_Technology ;
-                                    cv:hasCourse elias:bSI_Certification ;
-                                    cv:hasWorkHistory elias:Work_Brasidata , elias:Work_CERTI , elias:Work_Concat , elias:Work_TJRJ_Oracle_DBA ;
-                                    bdc_role:hasSkillGroup elias:Automation_Skills , elias:Data_Cloud_Skills .
+                                    cv:hasEducation :Civil_Engerineering ,
+                                                    :Information_Technology ;
+                                    cv:hasCourse :bSI_Certification ;
+                                    cv:hasWorkHistory :Work_Brasidata , :Work_CERTI , :Work_Concat , :Work_TJRJ_Oracle_DBA ;
+                                    bdc_role:hasSkillGroup :Automation_Skills , :Data_Cloud_Skills .
 
 
 ###  http://kb.elias.eng.br/nid/elias.ttl#EliasMPJunior_github
-elias:EliasMPJunior_github rdf:type owl:NamedIndividual ,
+:EliasMPJunior_github rdf:type owl:NamedIndividual ,
                                     bdc_org:GithubAccount ;
                            foaf:homepage "https://github.com/EliasMPJunior"^^xsd:anyURI .
 
 
 ###  http://kb.elias.eng.br/nid/elias.ttl#EliasMagalhaes_linkedin
-elias:EliasMagalhaes_linkedin rdf:type owl:NamedIndividual ,
+:EliasMagalhaes_linkedin rdf:type owl:NamedIndividual ,
                                        bdc_org:LinkedInAccount ;
                               foaf:homepage "https://www.linkedin.com/in/elias-magalhaes"^^xsd:anyURI .
 
 
 ###  http://kb.elias.eng.br/nid/elias.ttl#FELA
-elias:FELA rdf:type owl:NamedIndividual ,
+:FELA rdf:type owl:NamedIndividual ,
                     schema:Group ;
-           foaf:member elias:Elias ;
+           foaf:member :Elias ;
            schema:name "F.E.L.A." .
 
 
 ###  http://kb.elias.eng.br/nid/elias.ttl#InfoBIM
-elias:InfoBIM rdf:type owl:NamedIndividual ,
+:InfoBIM rdf:type owl:NamedIndividual ,
                        foaf:Project ,
                        schema:SoftwareSourceCode ;
-              foaf:maker elias:Elias ;
+              foaf:maker :Elias ;
               schema:license "Open Source" ;
               schema:name "InfoBIM Framework" ;
               schema:programmingLanguage "Python" ;
@@ -497,33 +498,48 @@ elias:InfoBIM rdf:type owl:NamedIndividual ,
               dcterms:abstract "A modular runtime environment for Engineering Automation that bridges the gap between static BIM data and dynamic AI agents. InfoBIM provides a machine-readable catalog of tools via its Discovery Protocol, turning ad-hoc OpenBIM scripts into a repeatable production line of capabilities. It enables LLMs to orchestrate automated logic checking, IDS-native rules, and descriptive report generation directly from IFC models, acting as the capability engine for BIM automation."@en ,
                                "Um ambiente de execução modular para Automação de Engenharia que preenche a lacuna entre dados BIM estáticos e agentes de IA dinâmicos. O InfoBIM fornece um catálogo de ferramentas legível por máquina através de seu Protocolo de Descoberta, transformando scripts OpenBIM avulsos em uma linha de produção de capacidades reutilizáveis. Ele permite que LLMs orquestrem checagens lógicas automatizadas, regras nativas IDS e geração de relatórios descritivos diretamente de modelos IFC, atuando como o motor de capacidades para a automação BIM."@pt-br .
 
-elias:Processo_Decisorio_Digital rdf:type owl:NamedIndividual ,
+:OntoBDC rdf:type owl:NamedIndividual ,
+                       foaf:Project ,
+                       schema:SoftwareSourceCode ;
+              foaf:maker :Elias ;
+              schema:license "Open Source" ;
+              schema:name "OntoBDC Framework" ;
+              schema:programmingLanguage "Python" ;
+              foaf:homepage "https://ontobdc.org"^^xsd:anyURI ;
+              dcterms:abstract """O OntoBDC é um Framework de Execução de Workflow Semântico desenvolvido para construir e estender grafos de conhecimento corporativos (Enterprise Knowledge Graphs), resolvendo o complexo desafio de interoperabilidade entre fontes de dados altamente heterogêneas (como BIM, IoT, CSV e ERPs). Em vez de depender de processos tradicionais de conversão de dados (ETL) e silos centralizados, a arquitetura utiliza princípios avançados da Web Semântica e padrões da W3C para "descentralizar o dado e centralizar o significado". Através do uso de URIs semânticas, Linksets e federação em RDF, o sistema mapeia relacionamentos e integra dados em tempo real sob uma ontologia comum (como o schema.org), criando uma malha de dados (Data Mesh) pronta para suportar validações estruturadas e lógicas complexas de negócios de forma escalável. Ao liderar este projeto (aplicado à rastreabilidade regulatória europeia via Digital Product Passports com validade jurídica ASiC), demonstro profunda capacidade em engenharia de ontologias, governança de dados descentralizados e aplicação prática de padrões RDF/W3C."""@pt-br ,
+                              """OntoBDC is a Semantic Workflow Execution Framework designed to build and extend enterprise knowledge graphs, addressing the interoperability challenge across highly heterogeneous data sources (such as BIM, IoT, CSV, and ERPs). Instead of relying on traditional ETL conversions and centralized silos, the architecture applies advanced Semantic Web principles and W3C standards to "decentralize data and centralize meaning". By using semantic URIs, linksets, and RDF federation, the system maps relationships and integrates data in real time under a shared ontology (such as schema.org), creating a data mesh ready to support structured validation and scalable business logic. By leading this project (applied to European regulatory traceability via Digital Product Passports with legal validity using ASiC), I demonstrate deep capability in ontology engineering, decentralized data governance, and practical application of RDF/W3C standards."""@en .
+
+:Processo_Decisorio_Digital rdf:type owl:NamedIndividual ,
                                          foaf:Project ,
                                          schema:SoftwareApplication ;
-                                foaf:maker elias:Elias ;
-                                schema:name "Processo Decisório Digital (PD)"@pt-br ;
+                                foaf:maker :Elias ;
+                                schema:name "Processo Decisório Digital (PD)"@pt-br ,
+                                            "Digital Decision-Making Process (PD)"@en ;
                                 schema:startDate "2017"^^xsd:gYear ;
                                 schema:endDate "2018"^^xsd:gYear ;
                                 foaf:homepage "https://www.youtube.com/watch?v=n-Mp8IAVpDc&t=232s"^^xsd:anyURI ;
-                                dcterms:abstract "Sistema/esteira para decisão de investimentos, centralizando notas técnicas multiárea, trilha de aprovações (comitês) e decisão final da diretoria."@pt-br .
+                                dcterms:abstract "Sistema/esteira para decisão de investimentos, centralizando notas técnicas multiárea, trilha de aprovações (comitês) e decisão final da diretoria."@pt-br ,
+                                                "Decision pipeline for investment approvals, centralizing multi-area technical notes, committee approval trails, and final executive decision."@en .
 
-elias:Carta_Precatoria_Eletronica rdf:type owl:NamedIndividual ,
+:Carta_Precatoria_Eletronica rdf:type owl:NamedIndividual ,
                                           foaf:Project ,
                                           schema:SoftwareApplication ;
-                                 foaf:maker elias:Elias ;
-                                 schema:name "Carta Precatória Eletrônica"@pt-br ;
+                                 foaf:maker :Elias ;
+                                 schema:name "Carta Precatória Eletrônica"@pt-br ,
+                                             "Electronic Letter Rogatory"@en ;
                                  schema:startDate "2010"^^xsd:gYear ;
-                                 dcterms:abstract "Produto de tramitação digital para cartas precatórias (PJRJ), cobrindo distribuição, execução no juízo deprecado e devolução, com regras de assinatura digital e conformidade normativa."@pt-br .
+                                 dcterms:abstract "Produto de tramitação digital para cartas precatórias (TJRJ), cobrindo distribuição, execução no juízo deprecado e devolução, com regras de assinatura digital e conformidade normativa."@pt-br ,
+                                                 "Digital case processing product for letters rogatory (TJRJ), covering distribution, execution in the requested court, and return, with digital signature workflows and regulatory compliance rules."@en .
 
 
 ###  http://kb.elias.eng.br/nid/elias.ttl#eliasmagalhaesbr_gmail
-elias:eliasmagalhaesbr_gmail rdf:type owl:NamedIndividual ,
+:eliasmagalhaesbr_gmail rdf:type owl:NamedIndividual ,
                                       foaf:Email ,
                                       foaf:OnlineAccount ;
                              foaf:mbox "eliasmagalhaesbr@gmail.com" .
 
 
-elias:BIM_Skills rdf:type owl:NamedIndividual ,
+:BIM_Skills rdf:type owl:NamedIndividual ,
                             bdc_role:SkillGroup ;
                             schema:name "BIM" ;
                             cv:hasSkill [ rdf:type cv:Skill ;
@@ -557,7 +573,7 @@ elias:BIM_Skills rdf:type owl:NamedIndividual ,
 
 
 
-elias:Automation_Skills rdf:type owl:NamedIndividual ,
+:Automation_Skills rdf:type owl:NamedIndividual ,
                             bdc_role:SkillGroup ;
                             schema:name "Automação"@pt-br ,
                                             "Automation"@en ;
@@ -598,7 +614,7 @@ elias:Automation_Skills rdf:type owl:NamedIndividual ,
                                             cv:skillLevel "Advanced" ] .
 
 
-elias:Data_Cloud_Skills rdf:type owl:NamedIndividual ,
+:Data_Cloud_Skills rdf:type owl:NamedIndividual ,
                                  bdc_role:SkillGroup ;
                         schema:name "Dados & Nuvem"@pt-br ,
                                      "Data & Cloud"@en ;
